@@ -1,0 +1,32 @@
+# Apps Submodules
+[submodule "apps/gcemail"]
+	path = apps/gcemail
+	url = git@github.com:getcommunity/gcemail.git
+[submodule "apps/gcui-docs"]
+	path = apps/gcui-docs
+	url = git@github.com:getcommunity/gcui-docs.git
+[submodule "apps/gcembed-solidjs"]
+	path = apps/gcembed-solidjs
+	url = git@github.com:joeygrable94/gcembed-solidjs.git
+# Packages Submodules
+[submodule "packages/client-styleguides"]
+	path = packages/client-styleguides
+	url = git@github.com:getcommunity/client-styleguides.git
+[submodule "packages/config-typescript"]
+	path = packages/config-typescript
+	url = git@github.com:getcommunity/config-typescript.git
+[submodule "packages/config-eslint"]
+	path = packages/config-eslint
+	url = git@github.com:getcommunity/config-eslint.git
+[submodule "packages/config-prettier"]
+	path = packages/config-prettier
+	url = git@github.com:getcommunity/config-prettier.git
+[submodule "packages/email-builder"]
+	path = packages/email-builder
+	url = git@github.com:getcommunity/email-builder.git
+[submodule "packages/gcui"]
+	path = packages/gcui
+	url = git@github.com:getcommunity/gcui.git
+[submodule "packages/gcui-tailwind"]
+	path = packages/gcui-tailwind
+	url = git@github.com:getcommunity/gcui-tailwind.git

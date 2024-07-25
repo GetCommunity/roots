@@ -1,0 +1,11 @@
+# src/
+node_modules/
+dev/
+postcss.config.*
+tailwind.config.*
+tsconfig.json
+vite.config.*
+.prettierrc
+.prettierrc.*
+.git
+.github
