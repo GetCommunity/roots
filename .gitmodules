@@ -30,3 +30,7 @@
 [submodule "packages/gcui-tailwind"]
 	path = packages/gcui-tailwind
 	url = git@github.com:GetCommunity/gcui-tailwind.git
+# Documentation
+[submodule "docs"]
+	path = docs
+	url = git@github.com:GetCommunity/docs.git
