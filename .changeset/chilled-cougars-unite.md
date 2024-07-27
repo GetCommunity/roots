@@ -8,4 +8,4 @@
 '@getcommunity/gcui-tailwind': patch
 ---
 
-testing changesets
+testing changeset
