@@ -9,7 +9,6 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "@joeygrable94/gcembed-solidjs",
-    "@getcommunity/gcemail",
-    "@getcommunity/gcui-docs"
+    "@getcommunity/gcemail"
   ]
 }
