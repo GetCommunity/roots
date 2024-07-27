@@ -9,3 +9,5 @@ vite.config.*
 .prettierrc.*
 .git
 .github
+apps/gcembed-solidjs
+apps/gcui-docs

@@ -8,8 +8,8 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "gcembed-headless",
-    "gcemail",
+    "@joeygrable94/gcembed-solidjs",
+    "@getcommunity/gcemail",
     "@getcommunity/gcui-docs"
   ]
 }
