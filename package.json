@@ -49,7 +49,7 @@
     "changeset": "changeset",
     "ci:release": "pnpm build && changeset publish",
     "ci:version": "changeset version && pnpm i --no-frozen-lockfile && git add .",
-    "clean": "turbo clean && rm -rf node_modules",
+    "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
     "dev": "turbo dev",
     "dev:gcui-docs": "turbo dev --filter=\"./apps/gcui-docs\"",
     "dev:gcui": "turbo dev --filter=\"./packages/gcui-tailwind\" --filter=\"./packages/gcui\"",
