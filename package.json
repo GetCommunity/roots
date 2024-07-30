@@ -45,19 +45,19 @@
     "url": "git+https://github.com/getcommunity/roots.git"
   },
   "scripts": {
-    "build": "turbo build",
-    "ci:changeset": "changeset",
-    "ci:version": "changeset version && pnpm i --no-frozen-lockfile && git add .",
-    "ci:release": "pnpm build && changeset publish",
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
     "dev": "turbo dev",
     "dev:gcui-docs": "turbo dev --filter=\"./apps/gcui-docs\"",
     "dev:gcui": "turbo dev --filter=\"./packages/gcui-tailwind\" --filter=\"./packages/gcui\"",
     "format": "turbo format",
-    "graph:build:all": "turbo run build --graph --dry | dot -Tpng -o./assets/dependency-graphs/turbo_graph-build-all.png",
     "lint": "turbo lint",
     "test": "turbo test",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "build": "turbo build",
+    "ci:changeset": "changeset",
+    "ci:version": "changeset version && pnpm i --no-frozen-lockfile && git add .",
+    "ci:release": "pnpm build && changeset publish",
+    "graph:build:all": "turbo run build --graph --dry | dot -Tpng -o./assets/dependency-graphs/turbo_graph-build-all.png"
   },
   "workspaces": [
     "packages/*",
