@@ -8,6 +8,9 @@
 [submodule "apps/gcembed-solidjs"]
 	path = apps/gcembed-solidjs
 	url = git@github.com:joeygrable94/gcembed-solidjs.git
+[submodule "apps/gcapi-frontend"]
+	path = apps/gcapi-frontend
+	url = https://github.com/joeygrable94/gcapi-frontend/
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
