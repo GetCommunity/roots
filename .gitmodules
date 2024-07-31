@@ -11,6 +11,7 @@
 [submodule "apps/gcapi-frontend"]
 	path = apps/gcapi-frontend
 	url = https://github.com/joeygrable94/gcapi-frontend/
+	branch = dev
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
