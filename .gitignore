@@ -3,7 +3,6 @@ apps/gcemail/**
 apps/gcembed-solidjs/**
 apps/gcui-docs/**
 apps/test-project/**
-apps/gcweb-test
 
 # GC packages
 packages/client-styleguides/**

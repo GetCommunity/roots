@@ -2,8 +2,10 @@
   "name": "@getcommunity/roots",
   "description": "Get Community Roots",
   "version": "0.0.0",
-  "author": "@JoeyGrable92 X @GetCommunity <joey@getcommunity.com>",
-  "contributors": [],
+  "author": "@GetCommunity <ryan@getcommunity.com> (https://github.com/GetCommunity)",
+  "contributors": [
+    "Joey Grable <joey@getcommunity.com> (https://joeygrable.com)"
+  ],
   "devDependencies": {
     "@babel/core": "^7.24.9",
     "@babel/preset-env": "^7.24.8",

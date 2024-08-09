@@ -5,9 +5,6 @@
 [submodule "apps/gcui-docs"]
 	path = apps/gcui-docs
 	url = git@github.com:GetCommunity/gcui-docs.git
-[submodule "apps/gcembed-solidjs"]
-	path = apps/gcembed-solidjs
-	url = git@github.com:joeygrable94/gcembed-solidjs.git
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
@@ -30,6 +27,9 @@
 [submodule "packages/gcui-tailwind"]
 	path = packages/gcui-tailwind
 	url = git@github.com:GetCommunity/gcui-tailwind.git
+[submodule "packages/gcui-cli"]
+	path = packages/gcui-cli
+	url = git@github.com:GetCommunity/gcui-cli.git
 # Documentation
 [submodule "docs"]
 	path = docs
