@@ -11,6 +11,7 @@ packages/config-prettier/**
 packages/config-typescript/**
 packages/email-builder/**
 packages/gcui/**
+packages/gcui-cli/**
 packages/gcui-tailwind/**
 
 # libs
