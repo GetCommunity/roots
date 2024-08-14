@@ -528,6 +528,9 @@ importers:
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
+      vite-tsconfig-paths:
+        specifier: ^5.0.1
+        version: 5.0.1(typescript@5.5.4)(vite@5.3.4(@types/node@20.14.12)(less@4.2.0)(sass@1.77.8)(terser@5.31.3))
       zod:
         specifier: ^3.20.2
         version: 3.23.8
@@ -4221,6 +4224,9 @@ packages:
     resolution: {integrity: sha512-s3Fq41ZVh7vbbe2PN3nrW7yC7U7MFVc5c98/iTl9c2GawNMKx/J648KQRW6WKkuU8GIbbh2IXfIRQjOZnXcTnw==}
     engines: {node: '>=18'}
 
+  globrex@0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
@@ -6349,6 +6355,16 @@ packages:
   ts-toolbelt@9.6.0:
     resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
 
+  tsconfck@3.1.1:
+    resolution: {integrity: sha512-00eoI6WY57SvZEVjm13stEVE90VkEdJAFGgpFLTsZbJyW/LwFQ7uQxJHWpZ2hzSWgCPKc9AnBnNP+0X7o3hAmQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    peerDependencies:
+      typescript: ^5.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   tsconfig-paths@4.2.0:
     resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
     engines: {node: '>=6'}
@@ -6609,6 +6625,14 @@ packages:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
     peerDependenciesMeta:
       '@testing-library/jest-dom':
+        optional: true
+
+  vite-tsconfig-paths@5.0.1:
+    resolution: {integrity: sha512-yqwv+LstU7NwPeNqajZzLEBVpUFU6Dugtb2P84FXuvaoYA+/70l9MHE+GYfYAycVyPSDYZ7mjOFuYBRqlEpTig==}
+    peerDependencies:
+      vite: '*'
+    peerDependenciesMeta:
+      vite:
         optional: true
 
   vite@5.3.4:
@@ -8838,7 +8862,7 @@ snapshots:
   '@eslint/eslintrc@2.1.4':
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.5
+      debug: 4.3.6
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.1
@@ -8871,7 +8895,7 @@ snapshots:
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
-      debug: 4.3.5
+      debug: 4.3.6
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -10132,7 +10156,7 @@ snapshots:
       '@typescript-eslint/types': 7.17.0
       '@typescript-eslint/typescript-estree': 7.17.0(typescript@5.5.4)
       '@typescript-eslint/visitor-keys': 7.17.0
-      debug: 4.3.5
+      debug: 4.3.6
       eslint: 8.57.0
     optionalDependencies:
       typescript: 5.5.4
@@ -10231,7 +10255,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 7.18.0
       '@typescript-eslint/visitor-keys': 7.18.0
-      debug: 4.3.5
+      debug: 4.3.6
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -10337,7 +10361,7 @@ snapshots:
       pathe: 1.1.2
       sirv: 2.0.4
       tinyrainbow: 1.2.0
-      vitest: 2.0.4(@types/node@20.14.13)(@vitest/ui@2.0.4)(jsdom@24.1.1)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)
+      vitest: 2.0.4(@types/node@20.14.12)(@vitest/ui@2.0.4)(jsdom@24.1.1)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)
 
   '@vitest/utils@1.6.0':
     dependencies:
@@ -11941,6 +11965,8 @@ snapshots:
       path-type: 5.0.0
       slash: 5.1.0
       unicorn-magic: 0.1.0
+
+  globrex@0.1.2: {}
 
   gopd@1.0.1:
     dependencies:
@@ -14606,6 +14632,10 @@ snapshots:
 
   ts-toolbelt@9.6.0: {}
 
+  tsconfck@3.1.1(typescript@5.5.4):
+    optionalDependencies:
+      typescript: 5.5.4
+
   tsconfig-paths@4.2.0:
     dependencies:
       json5: 2.2.3
@@ -14842,7 +14872,7 @@ snapshots:
   vite-node@2.0.4(@types/node@20.14.12)(less@4.2.0)(sass@1.77.8)(terser@5.31.3):
     dependencies:
       cac: 6.7.14
-      debug: 4.3.5
+      debug: 4.3.6
       pathe: 1.1.2
       tinyrainbow: 1.2.0
       vite: 5.3.4(@types/node@20.14.12)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)
@@ -14859,7 +14889,7 @@ snapshots:
   vite-node@2.0.4(@types/node@20.14.13)(less@4.2.0)(sass@1.77.8)(terser@5.31.3):
     dependencies:
       cac: 6.7.14
-      debug: 4.3.5
+      debug: 4.3.6
       pathe: 1.1.2
       tinyrainbow: 1.2.0
       vite: 5.3.4(@types/node@20.14.13)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)
@@ -14903,6 +14933,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  vite-tsconfig-paths@5.0.1(typescript@5.5.4)(vite@5.3.4(@types/node@20.14.12)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)):
+    dependencies:
+      debug: 4.3.6
+      globrex: 0.1.2
+      tsconfck: 3.1.1(typescript@5.5.4)
+    optionalDependencies:
+      vite: 5.3.4(@types/node@20.14.12)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   vite@5.3.4(@types/node@20.14.12)(less@4.2.0)(sass@1.77.8)(terser@5.31.3):
     dependencies:
       esbuild: 0.21.5
@@ -14936,6 +14977,40 @@ snapshots:
       vite: 5.3.4(@types/node@20.14.13)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)
 
   vitest@2.0.4(@types/node@20.14.12)(@vitest/ui@2.0.4(vitest@2.0.4))(jsdom@24.1.1)(less@4.2.0)(sass@1.77.8)(terser@5.31.3):
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@vitest/expect': 2.0.4
+      '@vitest/pretty-format': 2.0.4
+      '@vitest/runner': 2.0.4
+      '@vitest/snapshot': 2.0.4
+      '@vitest/spy': 2.0.4
+      '@vitest/utils': 2.0.4
+      chai: 5.1.1
+      debug: 4.3.5
+      execa: 8.0.1
+      magic-string: 0.30.10
+      pathe: 1.1.2
+      std-env: 3.7.0
+      tinybench: 2.8.0
+      tinypool: 1.0.0
+      tinyrainbow: 1.2.0
+      vite: 5.3.4(@types/node@20.14.12)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)
+      vite-node: 2.0.4(@types/node@20.14.12)(less@4.2.0)(sass@1.77.8)(terser@5.31.3)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 20.14.12
+      '@vitest/ui': 2.0.4(vitest@2.0.4)
+      jsdom: 24.1.1
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
+  vitest@2.0.4(@types/node@20.14.12)(@vitest/ui@2.0.4)(jsdom@24.1.1)(less@4.2.0)(sass@1.77.8)(terser@5.31.3):
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@vitest/expect': 2.0.4
