@@ -1,10 +1,7 @@
-# Apps Submodules
-[submodule "apps/gcemail"]
-	path = apps/gcemail
-	url = git@github.com:GetCommunity/gcemail.git
-[submodule "apps/gcui-docs"]
-	path = apps/gcui-docs
-	url = git@github.com:GetCommunity/gcui-docs.git
+# Documentation
+[submodule "docs"]
+	path = docs
+	url = git@github.com:GetCommunity/docs.git
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
@@ -30,7 +27,13 @@
 [submodule "packages/gcui-cli"]
 	path = packages/gcui-cli
 	url = git@github.com:GetCommunity/gcui-cli.git
-# Documentation
-[submodule "docs"]
-	path = docs
-	url = git@github.com:GetCommunity/docs.git
+# Apps Submodules
+[submodule "apps/gcemail"]
+	path = apps/gcemail
+	url = git@github.com:GetCommunity/gcemail.git
+[submodule "apps/gcui-docs"]
+	path = apps/gcui-docs
+	url = git@github.com:GetCommunity/gcui-docs.git
+[submodule "apps/gcui-www"]
+	path = apps/gcui-www
+	url = git@github.com:GetCommunity/gcui-www.git

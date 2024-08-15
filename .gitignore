@@ -2,7 +2,7 @@
 apps/gcemail/**
 apps/gcembed-solidjs/**
 apps/gcui-docs/**
-apps/gcui-www
+apps/gcui-www/**
 apps/test-project/**
 
 # GC packages

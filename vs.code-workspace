@@ -1,9 +1,8 @@
 {
-	"folders":
-	[
-		{
-			"name": "@getcommunity",
-			"path": "."
-		}
-	]
+  "folders": [
+    {
+      "name": "@getcommunity",
+      "path": ".",
+    },
+  ],
 }
