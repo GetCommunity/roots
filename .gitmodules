@@ -6,9 +6,6 @@
 [submodule "apps/gcemail"]
 	path = apps/gcemail
 	url = git@github.com:GetCommunity/gcemail.git
-[submodule "apps/gcui-docs"]
-	path = apps/gcui-docs
-	url = git@github.com:GetCommunity/gcui-docs.git
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
@@ -25,12 +22,3 @@
 [submodule "packages/email-builder"]
 	path = packages/email-builder
 	url = git@github.com:GetCommunity/email-builder.git
-[submodule "packages/gcui"]
-	path = packages/gcui
-	url = git@github.com:GetCommunity/gcui.git
-[submodule "packages/gcui-tailwind"]
-	path = packages/gcui-tailwind
-	url = git@github.com:GetCommunity/gcui-tailwind.git
-[submodule "packages/gcui-cli"]
-	path = packages/gcui-cli
-	url = git@github.com:GetCommunity/gcui-cli.git
