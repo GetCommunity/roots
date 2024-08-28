@@ -1,5 +1,6 @@
 # GC apps
 apps/gcemail/**
+apps/gcinc/**
 apps/gcembed-solidjs/**
 apps/gcui-docs/**
 apps/gcui-www/**
