@@ -4,5 +4,9 @@
       "name": "@getcommunity",
       "path": ".",
     },
+    {
+      "name": "gcinc",
+      "path": "apps/gcinc",
+    },
   ],
 }

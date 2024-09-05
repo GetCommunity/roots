@@ -38,11 +38,11 @@ Please follow the issue templates when filing new ones and add as much informati
 
 ### Feature requests
 
-Kobalte components can always be improved upon. If you have a feature request, you can use our Feature Request issue template. For new component or larger scopes of work, it is a good idea to open a Request For Comments (RFC) first to gather feedback from the team. Create a [new discussion](https://github.com/kobaltedev/kobalte/discussions/categories/rfc) in the RFC category by using our [RFC](https://github.com/kobaltedev/kobalte/tree/main/templates/rfc.md) template.
+If you have a feature request, you can use our Feature Request issue template. For new component or larger scopes of work, it is a good idea to open a Request For Comments (RFC) first to gather feedback from the team. Create a [new discussion](https://github.com/getcommunity/roots/discussions/categories/rfc) in the RFC category by using our [RFC](https://github.com/getcommunity/roots/tree/main/templates/rfc.md) template.
 
-## Connect with the community
+## Connect with your community with Get Community
 
-The [Kobalte channel](https://discord.com/channels/722131463138705510/1063803756388548709) on SolidJS's discord is a great place to chat about Kobalte.
+Send us a message through our [website contact page](https://getcommunity.com/contact/) or email our development team at [joey@getcommunity.com](mailto:joey@getcommunity.com)
 
 ## Pull requests
 
@@ -74,7 +74,7 @@ If you are looking for place to start, consider the following options:
 
 ## Developing
 
-Kobalte is a monorepo built with [pnpm](https://pnpm.io) and [turborepo](https://turbo.build/repo).
+Get Community core libraries are a polyrepo with submodules to add/remove pacakges and apps as needed. We build packages and applications with [pnpm](https://pnpm.io) and [turborepo](https://turbo.build/repo).
 
 ### Git branches
 
@@ -83,12 +83,11 @@ Kobalte is a monorepo built with [pnpm](https://pnpm.io) and [turborepo](https:/
 
 ### Commit convention
 
-Kobalte follows the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and use [commitizen](https://github.com/commitizen/cz-cli) to run the linter and type checker before each commit.
+Get Community uses pre-commit hooks to enforce a commit message convention. We use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to standardize our commit messages. This allows us to automatically generate changelogs and follow semantic versioning.
 
-### Get started with Kobalte locally
+### Get Community Core Library
 
-- Install [editorconfig](https://editorconfig.org/) extension for your editor.
-- Fork [repository](https://github.com/kobaltedev/kobalte), clone or download your fork.
+- Fork [repository](https://github.com/getcommunity/roots), clone or download your fork.
 - Install dependencies with pnpm – `pnpm`.
 - Build local version of all packages and docs – `pnpm build`.
 - Build local version of all packages – `pnpm build:libs`.
@@ -96,11 +95,13 @@ Kobalte follows the [conventional commits](https://www.conventionalcommits.org/e
 - To start docs – `pnpm dev:docs`.
 - To start playground – `pnpm dev:core`.
 
-### Tests
+<!--
+### Tests - TODO need to update this section
 
 We use [jest](https://jestjs.io/) for unit tests and [@solidjs/testing-library](https://github.com/solidjs/@solidjs/testing-library) for rendering and writing assertions. Please make sure you include tests with your pull requests. Our CI will run the tests on PRs, you can see on each PR whether you have passed all our checks.
 
 - To run tests locally - `pnpm test`.
+-->
 
 ### Pull Request
 
