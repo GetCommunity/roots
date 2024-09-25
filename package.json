@@ -26,7 +26,7 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "sass": "^1.77.8",
     "solid-devtools": "0.30.1",
-    "syncpack": "^12.3.3",
+    "syncpack": "13.0.0",
     "tsup": "^8.2.2",
     "turbo": "^2.0.9",
     "typescript": "^5.5.4",
@@ -49,24 +49,21 @@
     "useTabs": false
   },
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/getcommunity/roots.git"
-  },
+  "repository": "getcommunity/roots.git",
   "scripts": {
-    "dev": "turbo dev",
-    "dev:gcui-docs": "turbo dev --filter=\"./apps/gcui-docs\"",
-    "dev:gcui": "turbo dev --filter=\"./packages/gcui-tailwind\" --filter=\"./packages/gcui\"",
     "build": "turbo build",
+    "ci:changeset": "changeset",
+    "ci:release": "pnpm build && changeset publish",
+    "ci:version": "changeset version && pnpm i --no-frozen-lockfile && git add .",
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
+    "dev": "turbo dev",
+    "dev:gcui": "turbo dev --filter=\"./packages/gcui-tailwind\" --filter=\"./packages/gcui\"",
+    "dev:gcui-docs": "turbo dev --filter=\"./apps/gcui-docs\"",
     "format": "turbo format",
+    "graph:build:all": "turbo run build --graph --dry | dot -Tpng -o./assets/dependency-graphs/turbo_graph-build-all.png",
     "lint": "turbo lint",
     "test": "turbo test",
-    "typecheck": "turbo typecheck",
-    "ci:changeset": "changeset",
-    "ci:version": "changeset version && pnpm i --no-frozen-lockfile && git add .",
-    "ci:release": "pnpm build && changeset publish",
-    "graph:build:all": "turbo run build --graph --dry | dot -Tpng -o./assets/dependency-graphs/turbo_graph-build-all.png"
+    "typecheck": "turbo typecheck"
   },
   "workspaces": [
     "packages/*",
