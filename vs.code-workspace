@@ -5,6 +5,10 @@
       "path": ".",
     },
     {
+      "name": "gcemail",
+      "path": "apps/gcemail",
+    },
+    {
       "name": "gcinc",
       "path": "apps/gcinc",
     },

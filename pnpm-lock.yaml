@@ -142,8 +142,8 @@ importers:
   apps/gcinc:
     dependencies:
       '@auth/core':
-        specifier: 0.35.2
-        version: 0.35.2(nodemailer@6.9.14)
+        specifier: ^0.34.2
+        version: 0.34.2(nodemailer@6.9.14)
       '@corvu/drawer':
         specifier: ^0.2.2
         version: 0.2.2(solid-js@1.8.22)
@@ -164,7 +164,7 @@ importers:
         version: 0.23.0(solid-js@1.8.22)(typescript@5.5.4)
       '@solid-mediakit/auth':
         specifier: ^2.1.2
-        version: 2.1.2(@auth/core@0.35.2(nodemailer@6.9.14))(@solidjs/meta@0.29.4(solid-js@1.8.22))(@solidjs/router@0.14.3(solid-js@1.8.22))(@solidjs/start@1.0.6(@testing-library/jest-dom@6.5.0)(rollup@4.21.3)(solid-js@1.8.22)(vinxi@0.4.2(@types/node@22.5.4)(ioredis@5.4.1)(sass@1.77.8)(terser@5.32.0)(webpack-sources@3.2.3))(vite@5.4.4(@types/node@22.5.4)(sass@1.77.8)(terser@5.32.0)))(rollup@4.21.3)(solid-js@1.8.22)(vinxi@0.4.2(@types/node@22.5.4)(ioredis@5.4.1)(sass@1.77.8)(terser@5.32.0)(webpack-sources@3.2.3))
+        version: 2.1.2(@auth/core@0.34.2(nodemailer@6.9.14))(@solidjs/meta@0.29.4(solid-js@1.8.22))(@solidjs/router@0.14.3(solid-js@1.8.22))(@solidjs/start@1.0.6(@testing-library/jest-dom@6.5.0)(rollup@4.21.3)(solid-js@1.8.22)(vinxi@0.4.2(@types/node@22.5.4)(ioredis@5.4.1)(sass@1.77.8)(terser@5.32.0)(webpack-sources@3.2.3))(vite@5.4.4(@types/node@22.5.4)(sass@1.77.8)(terser@5.32.0)))(rollup@4.21.3)(solid-js@1.8.22)(vinxi@0.4.2(@types/node@22.5.4)(ioredis@5.4.1)(sass@1.77.8)(terser@5.32.0)(webpack-sources@3.2.3))
       '@solid-mediakit/auth-plugin':
         specifier: ^1.1.2
         version: 1.1.2(rollup@4.21.3)
@@ -530,8 +530,8 @@ packages:
     resolution: {integrity: sha512-pRrmXMCwnmrkS3MLgAIW5dXRzeTv6GLjkjb4HmxNnvAKXN1Nfzp4KmGADBQvlVUcqi+a5D+hfGDLLnd5NnYxog==}
     engines: {node: '>= 16'}
 
-  '@auth/core@0.35.2':
-    resolution: {integrity: sha512-4PSrmSkZNMNQEHq86jARBYqls/9G2ECGMJmlazXxkRpZWgtKMUBXF1HUPz82cxy3qFXZ9/HPEiGIEGtIvu4YGQ==}
+  '@auth/core@0.34.2':
+    resolution: {integrity: sha512-KywHKRgLiF3l7PLyL73fjLSIBe1YNcA6sMeew4yMP6cfCWGXZrkkXd32AjRi1hlJ9nvovUBGZHvbn+LijO6ZeQ==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
       '@simplewebauthn/server': ^9.0.2
@@ -7328,7 +7328,7 @@ snapshots:
       '@types/json-schema': 7.0.15
       js-yaml: 4.1.0
 
-  '@auth/core@0.35.2(nodemailer@6.9.14)':
+  '@auth/core@0.34.2(nodemailer@6.9.14)':
     dependencies:
       '@panva/hkdf': 1.2.1
       '@types/cookie': 0.6.0
@@ -9334,9 +9334,9 @@ snapshots:
       - rollup
       - supports-color
 
-  '@solid-mediakit/auth@2.1.2(@auth/core@0.35.2(nodemailer@6.9.14))(@solidjs/meta@0.29.4(solid-js@1.8.22))(@solidjs/router@0.14.3(solid-js@1.8.22))(@solidjs/start@1.0.6(@testing-library/jest-dom@6.5.0)(rollup@4.21.3)(solid-js@1.8.22)(vinxi@0.4.2(@types/node@22.5.4)(ioredis@5.4.1)(sass@1.77.8)(terser@5.32.0)(webpack-sources@3.2.3))(vite@5.4.4(@types/node@22.5.4)(sass@1.77.8)(terser@5.32.0)))(rollup@4.21.3)(solid-js@1.8.22)(vinxi@0.4.2(@types/node@22.5.4)(ioredis@5.4.1)(sass@1.77.8)(terser@5.32.0)(webpack-sources@3.2.3))':
+  '@solid-mediakit/auth@2.1.2(@auth/core@0.34.2(nodemailer@6.9.14))(@solidjs/meta@0.29.4(solid-js@1.8.22))(@solidjs/router@0.14.3(solid-js@1.8.22))(@solidjs/start@1.0.6(@testing-library/jest-dom@6.5.0)(rollup@4.21.3)(solid-js@1.8.22)(vinxi@0.4.2(@types/node@22.5.4)(ioredis@5.4.1)(sass@1.77.8)(terser@5.32.0)(webpack-sources@3.2.3))(vite@5.4.4(@types/node@22.5.4)(sass@1.77.8)(terser@5.32.0)))(rollup@4.21.3)(solid-js@1.8.22)(vinxi@0.4.2(@types/node@22.5.4)(ioredis@5.4.1)(sass@1.77.8)(terser@5.32.0)(webpack-sources@3.2.3))':
     dependencies:
-      '@auth/core': 0.35.2(nodemailer@6.9.14)
+      '@auth/core': 0.34.2(nodemailer@6.9.14)
       '@solid-mediakit/shared': 0.0.6(rollup@4.21.3)
       '@solidjs/meta': 0.29.4(solid-js@1.8.22)
       '@solidjs/router': 0.14.3(solid-js@1.8.22)
