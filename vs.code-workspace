@@ -5,6 +5,10 @@
       "path": ".",
     },
     {
+      "name": "Docs",
+      "path": "./docs",
+    },
+    {
       "name": "gcemail",
       "path": "apps/gcemail",
     },
