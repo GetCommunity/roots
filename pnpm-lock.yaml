@@ -251,8 +251,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0
       '@getcommunity/client-styleguides':
-        specifier: ^0.0.11
-        version: 0.0.11(ts-node@10.9.2(@types/node@22.9.1)(typescript@5.6.3))
+        specifier: workspace:*
+        version: link:../../packages/client-styleguides
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.4.0
         version: 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.3.3)
@@ -1904,9 +1904,6 @@ packages:
 
   '@fontsource-variable/playfair-display@5.1.0':
     resolution: {integrity: sha512-51UJAHznXiGkchEOT5AYFuIy9N9m1JE7YxcdOtY0H4SKgzK9YYGKpeCXv3dz2e1gAd+BP2TyR0QXNnVjgeCbgw==}
-
-  '@getcommunity/client-styleguides@0.0.11':
-    resolution: {integrity: sha512-KBUqtGpqUdQFPa2DcUgtlsP1g2O9J4k4gzY3cNqjtkydbJCUF70UtmF1nwmVPkJTzhQvlUU+HhSQOcO9ZT7vzg==}
 
   '@graphql-typed-document-node/core@3.2.0':
     resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
@@ -8543,12 +8540,6 @@ snapshots:
   '@fontsource-variable/montserrat@5.1.0': {}
 
   '@fontsource-variable/playfair-display@5.1.0': {}
-
-  '@getcommunity/client-styleguides@0.0.11(ts-node@10.9.2(@types/node@22.9.1)(typescript@5.6.3))':
-    dependencies:
-      tailwindcss: 3.4.15(ts-node@10.9.2(@types/node@22.9.1)(typescript@5.6.3))
-    transitivePeerDependencies:
-      - ts-node
 
   '@graphql-typed-document-node/core@3.2.0(graphql@16.9.0)':
     dependencies:
