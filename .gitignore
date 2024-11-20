@@ -5,6 +5,11 @@ apps/gcembed-solidjs/**
 apps/gcui-docs/**
 apps/gcui-www/**
 apps/test-project/**
+apps/gc-sst-www
+apps/gc-cf-www
+apps/gc-www
+
+exp/**
 
 # GC packages
 packages/client-styleguides/**
