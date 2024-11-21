@@ -16,5 +16,9 @@
       "name": "gcinc",
       "path": "apps/gcinc",
     },
+    {
+      "name": "gc-cf-solid",
+      "path": "apps/gc-cf-solid",
+    },
   ],
 }

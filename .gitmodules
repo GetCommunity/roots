@@ -9,6 +9,9 @@
 [submodule "apps/gcinc"]
 	path = apps/gcinc
 	url = git@github.com:GetCommunity/gcinc.git
+[submodule "apps/gc-cf-solid"]
+	path = apps/gc-cf-solid
+	url = git@github.com:GetCommunity/gc-cf-solid.git
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
