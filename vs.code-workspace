@@ -8,17 +8,5 @@
       "name": "Docs",
       "path": "./docs",
     },
-    {
-      "name": "gcemail",
-      "path": "apps/gcemail",
-    },
-    {
-      "name": "gcinc",
-      "path": "apps/gcinc",
-    },
-    {
-      "name": "gc-cf-solid",
-      "path": "apps/gc-cf-solid",
-    },
   ],
 }
