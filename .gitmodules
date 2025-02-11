@@ -6,12 +6,12 @@
 [submodule "apps/gcemail"]
 	path = apps/gcemail
 	url = git@github.com:GetCommunity/gcemail.git
-[submodule "apps/gcinc"]
-	path = apps/gcinc
-	url = git@github.com:GetCommunity/gcinc.git
 [submodule "apps/gc-cf-solid"]
 	path = apps/gc-cf-solid
 	url = git@github.com:GetCommunity/gc-cf-solid.git
+[submodule "apps/gc-cf-utmbuilder"]
+	path = apps/gc-cf-utmbuilder
+	url = git@github.com:GetCommunity/gc-cf-utmbuilder.git
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
