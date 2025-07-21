@@ -8,7 +8,8 @@
   ],
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
-    "@getcommunity/config-prettier": "*",
+    "@getcommunity/config-prettier": "^0.0.10",
+    "concurrently": "^9.2.0",
     "depcheck": "^1.4.7",
     "syncpack": "13.0.4",
     "turbo": "^2.5.5",
@@ -20,6 +21,9 @@
   "private": true,
   "repository": "getcommunity/roots.git",
   "scripts": {
+    "dev:www": "concurrently \"npm run dev:gc-strapi\" \"npm run dev:gc-cf-www-ssr\"",
+    "dev:gc-strapi": "cd apps/gc-strapi && npm run dev",
+    "dev:gc-cf-www-ssr": "cd apps/gc-cf-www-ssr && npm run dev",
     "build": "turbo build",
     "ci:changeset": "changeset",
     "ci:version": "changeset version && pnpm i --no-frozen-lockfile && git add .",
@@ -28,6 +32,7 @@
     "dev": "turbo dev",
     "format": "turbo format",
     "graph:build:all": "turbo run build --graph --dry | dot -Tpng -o./assets/dependency-graphs/turbo_graph-build-all.png",
+    "install:all": "pnpm install && pnpm recursive install",
     "lint": "turbo lint",
     "test": "turbo test",
     "typecheck": "turbo typecheck"
