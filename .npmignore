@@ -11,4 +11,6 @@ vite.config.*
 .github
 apps/gcembed-solidjs
 apps/gc-cf-solid
+apps/gc-cf-www
+apps/gc-cf-www-ssr
 apps/gcui-docs

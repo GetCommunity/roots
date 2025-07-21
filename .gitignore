@@ -7,6 +7,7 @@ apps/gcui-www/**
 apps/test-project/**
 apps/gc-sst-www
 apps/gc-cf-www
+apps/gc-cf-www-ssr
 apps/gc-www
 
 exp/**
@@ -17,6 +18,7 @@ packages/config-eslint/**
 packages/config-prettier/**
 packages/config-typescript/**
 packages/email-builder/**
+packages/gc-validators/**
 packages/gcui/**
 packages/gcui-cli/**
 packages/gcui-tailwind/**

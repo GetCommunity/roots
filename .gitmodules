@@ -6,6 +6,9 @@
 [submodule "apps/gcemail"]
 	path = apps/gcemail
 	url = git@github.com:GetCommunity/gcemail.git
+[submodule "apps/gc-cf-www-ssr"]
+	path = apps/gc-cf-www-ssr
+	url = git@github.com:GetCommunity/gc-cf-www-ssr.git
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
@@ -22,3 +25,6 @@
 [submodule "packages/email-builder"]
 	path = packages/email-builder
 	url = git@github.com:GetCommunity/email-builder.git
+[submodule "packages/gc-validators"]
+	path = packages/gc-validators
+	url = git@github.com:GetCommunity/gc-validators.git
