@@ -8,25 +8,15 @@
   ],
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
+    "@getcommunity/config-prettier": "*",
     "depcheck": "^1.4.7",
-    "syncpack": "13.0.0",
+    "syncpack": "13.0.4",
     "turbo": "^2.5.5",
     "typescript": "^5.8.3"
   },
   "keywords": [],
   "license": "SEE LICENSE",
   "packageManager": "pnpm@8.15.6",
-  "prettier": {
-    "$schema": "https://json.schemastore.org/prettierrc",
-    "endOfLine": "lf",
-    "semi": false,
-    "singleQuote": false,
-    "jsxSingleQuote": false,
-    "tabWidth": 2,
-    "useTabs": false,
-    "printWidth": 88,
-    "trailingComma": "none"
-  },
   "private": true,
   "repository": "getcommunity/roots.git",
   "scripts": {
