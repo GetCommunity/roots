@@ -9,6 +9,9 @@
 [submodule "apps/gc-cf-www-ssr"]
 	path = apps/gc-cf-www-ssr
 	url = git@github.com:GetCommunity/gc-cf-www-ssr.git
+[submodule "apps/gc-strapi"]
+	path = apps/gc-strapi
+	url = git@github.com:GetCommunity/gc-strapi.git
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides

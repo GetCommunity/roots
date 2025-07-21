@@ -5,10 +5,11 @@ apps/gcembed-solidjs/**
 apps/gcui-docs/**
 apps/gcui-www/**
 apps/test-project/**
-apps/gc-sst-www
-apps/gc-cf-www
-apps/gc-cf-www-ssr
-apps/gc-www
+apps/gc-sst-www/**
+apps/gc-cf-www/**
+apps/gc-cf-www-ssr/**
+apps/gc-www/**
+apps/gc-strapi/**
 
 exp/**
 
