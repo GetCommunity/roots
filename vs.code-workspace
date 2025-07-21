@@ -2,15 +2,7 @@
   "folders": [
     {
       "name": "@getcommunity",
-      "path": ".",
-    },
-    {
-      "name": "Docs",
-      "path": "./docs",
-    },
-    {
-      "name": "gcemail",
-      "path": "./apps/gcemail",
-    },
-  ],
+      "path": "."
+    }
+  ]
 }
