@@ -51,6 +51,9 @@ lerna-debug.log
 .env.test.local
 .env.production.local
 
+# aws
+.aws
+
 # turbo
 .turbo
 
