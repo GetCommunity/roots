@@ -14,15 +14,15 @@ apps/gc-strapi
 exp/**
 
 # GC packages
-packages/client-styleguides/**
-packages/config-eslint/**
-packages/config-prettier/**
-packages/config-typescript/**
-packages/email-builder/**
-packages/gc-validators/**
-packages/gcui/**
-packages/gcui-cli/**
-packages/gcui-tailwind/**
+packages/client-styleguides
+packages/config-eslint
+packages/config-prettier
+packages/config-typescript
+packages/email-builder
+packages/gc-validators
+packages/gcui
+packages/gcui-cli
+packages/gcui-tailwind
 
 # libs
 node_modules
