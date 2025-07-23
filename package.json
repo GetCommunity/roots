@@ -21,9 +21,9 @@
   "private": true,
   "repository": "getcommunity/roots.git",
   "scripts": {
-    "dev:www": "concurrently \"npm run dev:gc-strapi\" \"npm run dev:gc-cf-www-ssr\"",
-    "dev:gc-strapi": "cd apps/gc-strapi && npm run dev",
-    "dev:gc-cf-www-ssr": "cd apps/gc-cf-www-ssr && npm run dev",
+    "dev:www": "concurrently \"pnpm dev:gc-strapi\" \"pnpm dev:gc-cf-www-ssr\"",
+    "dev:gc-strapi": "cd apps/gc-strapi && pnpm dev",
+    "dev:gc-cf-www-ssr": "cd apps/gc-cf-www-ssr && pnpm dev",
     "build": "turbo build",
     "ci:changeset": "changeset",
     "ci:version": "changeset version && pnpm i --no-frozen-lockfile && git add .",

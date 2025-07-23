@@ -20,6 +20,7 @@ packages/config-prettier
 packages/config-typescript
 packages/email-builder
 packages/gc-validators
+packages/strapi-blocks-solid-renderer
 packages/gcui
 packages/gcui-cli
 packages/gcui-tailwind
