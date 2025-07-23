@@ -12,6 +12,9 @@
 [submodule "apps/gc-strapi"]
 	path = apps/gc-strapi
 	url = git@github.com:GetCommunity/gc-strapi.git
+[submodule "apps/gcui-docs"]
+	path = apps/gcui-docs
+	url = git@github.com:GetCommunity/gcui-docs.git
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
