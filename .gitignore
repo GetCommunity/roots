@@ -1,3 +1,7 @@
+# GC Local Only
+aws
+content
+
 # GC apps
 apps/gcemail
 apps/gcinc
