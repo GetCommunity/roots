@@ -2,38 +2,50 @@
 [submodule "docs"]
 	path = docs
 	url = git@github.com:GetCommunity/docs.git
+	branch = main
 # Apps Submodules
 [submodule "apps/gcemail"]
 	path = apps/gcemail
 	url = git@github.com:GetCommunity/gcemail.git
+	branch = main
 [submodule "apps/gc-cf-www-ssr"]
 	path = apps/gc-cf-www-ssr
 	url = git@github.com:GetCommunity/gc-cf-www-ssr.git
+	branch = main
 [submodule "apps/gc-strapi"]
 	path = apps/gc-strapi
 	url = git@github.com:GetCommunity/gc-strapi.git
+	branch = main
 [submodule "apps/gcui-docs"]
 	path = apps/gcui-docs
 	url = git@github.com:GetCommunity/gcui-docs.git
+	branch = main
 # Packages Submodules
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
 	url = git@github.com:GetCommunity/client-styleguides.git
+	branch = main
 [submodule "packages/config-typescript"]
 	path = packages/config-typescript
 	url = git@github.com:GetCommunity/config-typescript.git
+	branch = main
 [submodule "packages/config-eslint"]
 	path = packages/config-eslint
 	url = git@github.com:GetCommunity/config-eslint.git
+	branch = main
 [submodule "packages/config-prettier"]
 	path = packages/config-prettier
 	url = git@github.com:GetCommunity/config-prettier.git
+	branch = main
 [submodule "packages/email-builder"]
 	path = packages/email-builder
 	url = git@github.com:GetCommunity/email-builder.git
+	branch = main
 [submodule "packages/gc-validators"]
 	path = packages/gc-validators
 	url = git@github.com:GetCommunity/gc-validators.git
+	branch = production
 [submodule "packages/strapi-blocks-solid-renderer"]
 	path = packages/strapi-blocks-solid-renderer
 	url = git@github.com:GetCommunity/strapi-blocks-solid-renderer.git
+	branch = main
