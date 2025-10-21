@@ -3,33 +3,33 @@ aws
 content
 
 # GC apps
-apps/gcemail
-apps/gcinc
-apps/gcembed-solidjs
-apps/gcui-docs
-apps/gcui-www
-apps/test-project
-apps/gc-sst-www
-apps/gc-cf-www
-apps/gc-cf-www-ssr
-apps/gc-www
-apps/gc-strapi
-apps/backend
-apps/frontend
+# apps/gcemail
+# apps/gcinc
+# apps/gcembed-solidjs
+# apps/gcui-docs
+# apps/gcui-www
+# apps/test-project
+# apps/gc-sst-www
+# apps/gc-cf-www
+# apps/gc-cf-www-ssr
+# apps/gc-www
+# apps/gc-strapi
+# apps/backend
+# apps/frontend
 
 exp/**
 
 # GC packages
-packages/client-styleguides
-packages/config-eslint
-packages/config-prettier
-packages/config-typescript
-packages/email-builder
-packages/gc-validators
-packages/strapi-blocks-solid-renderer
-packages/gcui
-packages/gcui-cli
-packages/gcui-tailwind
+# packages/client-styleguides
+# packages/config-eslint
+# packages/config-prettier
+# packages/config-typescript
+# packages/email-builder
+# packages/gc-validators
+# packages/strapi-blocks-solid-renderer
+# packages/gcui
+# packages/gcui-cli
+# packages/gcui-tailwind
 
 # libs
 node_modules
