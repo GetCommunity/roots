@@ -8,14 +8,6 @@
 	path = apps/gcemail
 	url = git@github.com:GetCommunity/gcemail.git
 	branch = main
-[submodule "apps/frontend"]
-	path = apps/frontend
-	url = git@github.com:GetCommunity/gc-cf-www-ssr.git
-	branch = main
-[submodule "apps/backend"]
-	path = apps/backend
-	url = git@github.com:GetCommunity/gc-strapi.git
-	branch = main
 [submodule "apps/gcui-docs"]
 	path = apps/gcui-docs
 	url = git@github.com:GetCommunity/gcui-docs.git
