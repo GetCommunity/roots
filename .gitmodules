@@ -49,3 +49,6 @@
 	path = packages/strapi-blocks-solid-renderer
 	url = git@github.com:GetCommunity/strapi-blocks-solid-renderer.git
 	branch = main
+[submodule "data"]
+	path = data
+	url = git@github.com:GetCommunity/gc-data.git
