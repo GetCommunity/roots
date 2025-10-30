@@ -3,6 +3,30 @@
     {
       "name": "@getcommunity",
       "path": "."
+    },
+    {
+      "name": "docs",
+      "path": "./docs"
+    },
+    {
+      "name": "aws",
+      "path": "./aws"
+    },
+    {
+      "name": "data",
+      "path": "./data"
+    },
+    {
+      "name": "validators",
+      "path": "./packages/gc-validators"
+    },
+    {
+      "name": "backend",
+      "path": "./apps/backend"
+    },
+    {
+      "name": "frontend",
+      "path": "./apps/frontend"
     }
   ]
 }

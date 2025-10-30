@@ -12,8 +12,8 @@ importers:
         specifier: ^2.29.5
         version: 2.29.5
       '@getcommunity/config-prettier':
-        specifier: ^0.0.10
-        version: 0.0.10(prettier-plugin-organize-imports@4.1.0(prettier@3.6.2)(typescript@5.8.3))(prettier-plugin-tailwindcss@0.6.14(prettier-plugin-organize-imports@4.1.0(prettier@3.6.2)(typescript@5.8.3))(prettier@3.6.2))(prettier@3.6.2)
+        specifier: ^0.0.11
+        version: 0.0.11(prettier-plugin-organize-imports@4.1.0(prettier@3.6.2)(typescript@5.8.3))(prettier-plugin-tailwindcss@0.6.14(prettier-plugin-organize-imports@4.1.0(prettier@3.6.2)(typescript@5.8.3))(prettier@3.6.2))(prettier@3.6.2)
       concurrently:
         specifier: ^9.2.0
         version: 9.2.0
@@ -124,12 +124,12 @@ packages:
   '@changesets/write@0.4.0':
     resolution: {integrity: sha512-CdTLvIOPiCNuH71pyDu3rA+Q0n65cmAbXnwWH84rKGiFumFzkmHNT8KHTMEchcxN+Kl8I54xGUhJ7l3E7X396Q==}
 
-  '@getcommunity/config-prettier@0.0.10':
-    resolution: {integrity: sha512-btkYgfF5083q0iyodmTDPeMZTSRYo79ER8WqNQpO1xjIKmkVfAd9JTet2EK1HwhMcOvSQ4hLyLwqBQmSxjwgrQ==}
+  '@getcommunity/config-prettier@0.0.11':
+    resolution: {integrity: sha512-VCcvv0EHfDieiX9eq68NFXCrYvBoIYOGtyTDrEIXlQGFAYCjgi9vjJEBV+Saw5iQIL9CbNmYSk1l4BHGjPBpxQ==}
     peerDependencies:
       prettier: ^3.6.2
-      prettier-plugin-organize-imports: ^4.1.0
-      prettier-plugin-tailwindcss: ^0.6.14
+      prettier-plugin-organize-imports: ^4.3.0
+      prettier-plugin-tailwindcss: ^0.7.1
 
   '@jridgewell/gen-mapping@0.3.8':
     resolution: {integrity: sha512-imAbBGkb+ebQyxKgzv5Hu2nmROxoDOXHh80evxdoXNOrvAnVx7zimzc1Oo5h9RlfV4vPXaE2iM5pOFbvOCClWA==}
@@ -1303,7 +1303,7 @@ snapshots:
       human-id: 4.1.1
       prettier: 2.8.8
 
-  '@getcommunity/config-prettier@0.0.10(prettier-plugin-organize-imports@4.1.0(prettier@3.6.2)(typescript@5.8.3))(prettier-plugin-tailwindcss@0.6.14(prettier-plugin-organize-imports@4.1.0(prettier@3.6.2)(typescript@5.8.3))(prettier@3.6.2))(prettier@3.6.2)':
+  '@getcommunity/config-prettier@0.0.11(prettier-plugin-organize-imports@4.1.0(prettier@3.6.2)(typescript@5.8.3))(prettier-plugin-tailwindcss@0.6.14(prettier-plugin-organize-imports@4.1.0(prettier@3.6.2)(typescript@5.8.3))(prettier@3.6.2))(prettier@3.6.2)':
     dependencies:
       prettier: 3.6.2
       prettier-plugin-organize-imports: 4.1.0(prettier@3.6.2)(typescript@5.8.3)

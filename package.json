@@ -8,7 +8,7 @@
   ],
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
-    "@getcommunity/config-prettier": "^0.0.10",
+    "@getcommunity/config-prettier": "^0.0.11",
     "concurrently": "^9.2.0",
     "depcheck": "^1.4.7",
     "syncpack": "13.0.4",

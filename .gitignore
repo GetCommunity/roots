@@ -1,5 +1,4 @@
 # GC Local Only
-aws
 content
 exp/**
 
@@ -35,6 +34,7 @@ lerna-debug.log
 
 # aws
 .aws
+aws
 
 # turbo
 .turbo
