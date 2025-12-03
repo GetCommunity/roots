@@ -7,17 +7,17 @@
     "Joey Grable <joey@getcommunity.com> (https://joeygrable.com)"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.29.5",
-    "@getcommunity/config-prettier": "^0.0.11",
-    "concurrently": "^9.2.0",
+    "@changesets/cli": "^2.29.8",
+    "@getcommunity/config-prettier": "^0.0.12",
+    "concurrently": "^9.2.1",
     "depcheck": "^1.4.7",
     "syncpack": "13.0.4",
     "turbo": "^2.5.5",
-    "typescript": "^5.8.3"
+    "typescript": "^5.3"
   },
   "keywords": [],
   "license": "SEE LICENSE",
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "pnpm@10.24.0",
   "private": true,
   "repository": "getcommunity/roots.git",
   "scripts": {
