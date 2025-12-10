@@ -1,192 +1,501 @@
-# Turborepo Design System Starter
+# Turborepo Setup for GetCommunity Monorepo
 
-This guide explains how to use a React design system starter powered by:
+This monorepo uses [Turborepo](https://turbo.build/repo) to manage the GetCommunity fullstack application, which consists of multiple apps and shared packages organized as git submodules.
 
-- 🏎 [Turborepo](https://turbo.build/repo) — High-performance build system for Monorepos
-- 🚀 [React](https://reactjs.org/) — JavaScript library for user interfaces
-- 🛠 [Tsup](https://github.com/egoist/tsup) — TypeScript bundler powered by esbuild
-- 📖 [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
+## Architecture Overview
 
-As well as a few others tools preconfigured:
+### Apps (Git Submodules in `apps/`)
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-- [Changesets](https://github.com/changesets/changesets) for managing versioning and changelogs
-- [GitHub Actions](https://github.com/changesets/action) for fully automated package publishing
+- **backend** (`gc-strapi`) - Strapi CMS backend deployed to AWS EC2
+- **frontend** (`gc-cf-www-ssr`) - SolidJS frontend deployed via Cloudflare Pages
+- **gcui-docs** - UI documentation site
 
-## Using this example
+### Packages (Git Submodules in `packages/`)
 
-Run the following command:
+- **gc-validators** - Shared validation schemas using Valibot (published to npm)
+- **config-prettier** - Shared Prettier configuration
+- **config-eslint** - Shared ESLint configuration
+- **config-typescript** - Shared TypeScript configuration
+- **client-styleguides** - Client-facing style guidelines tailwindcss plugins
+- **strapi-blocks-solid-renderer** - Renderer for Strapi blocks in SolidJS
 
-```sh
-npx create-turbo@latest -e design-system
-```
+### Other Submodules
 
-### Useful Commands
+- **docs** - Project documentation
+- **data** (`gc-data`) - Data management
 
-- `pnpm build` - Build all packages, including the Storybook site
-- `pnpm dev` - Run all packages locally and preview with Storybook
-- `pnpm lint` - Lint all packages
-- `pnpm changeset` - Generate a changeset
-- `pnpm clean` - Clean up all `node_modules` and `dist` folders (runs each package's clean script)
+## Why Git Submodules?
 
-## Turborepo
+This monorepo uses git submodules for apps and packages because:
 
-[Turborepo](https://turbo.build/repo) is a high-performance build system for JavaScript and TypeScript codebases. It was designed after the workflows used by massive software engineering organizations to ship code at scale. Turborepo abstracts the complex configuration needed for monorepos and provides fast, incremental builds with zero-configuration remote caching.
+1. **Independent Deployment** - Backend and frontend have separate deployment pipelines:
+   - Frontend: Auto-deploys via Cloudflare on push to main
+   - Backend: Deploys to AWS EC2 with separate build process
+2. **Package Publishing** - `gc-validators` is published to npm as a standalone library
+3. **Repository Independence** - Each submodule can be worked on independently
+4. **Version Control** - Explicit versioning for shared packages
 
-Using Turborepo simplifies managing your design system monorepo, as you can have a single lint, build, test, and release process for all packages. [Learn more](https://vercel.com/blog/monorepos-are-changing-how-teams-build-software) about how monorepos improve your development workflow.
+## Turborepo Benefits
 
-## Apps & Packages
+Even with git submodules, Turborepo provides:
 
-This Turborepo includes the following packages and applications:
+- ✅ **Intelligent Caching** - Build once, reuse everywhere
+- ✅ **Task Orchestration** - Automatic dependency-aware task execution
+- ✅ **Parallel Execution** - Run tasks across workspaces simultaneously
+- ✅ **Incremental Builds** - Only rebuild what changed
+- ✅ **Shared Configuration** - Centralized task definitions
 
-- `apps/docs`: Component documentation site with Storybook
-- `packages/ui`: Core React components
-- `packages/utils`: Shared React utilities
-- `packages/typescript-config`: Shared `tsconfig.json`s used throughout the Turborepo
-- `packages/eslint-config`: ESLint preset
+## Common Commands
 
-Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience. To install a dependency for the entire monorepo, use the `-w` workspaces flag with `pnpm add`.
-
-This example sets up your `.gitignore` to exclude all generated files, other folders like `node_modules` used to store your dependencies.
-
-### Compilation
-
-To make the core library code work across all browsers, we need to compile the raw TypeScript and React code to plain JavaScript. We can accomplish this with `tsup`, which uses `esbuild` to greatly improve performance.
-
-Running `pnpm build` from the root of the Turborepo will run the `build` command defined in each package's `package.json` file. Turborepo runs each `build` in parallel and caches & hashes the output to speed up future builds.
-
-For `acme-core`, the `build` command is the following:
+### Development
 
 ```bash
-tsup src/index.tsx --format esm,cjs --dts --external react
+# Start both backend and frontend
+pnpm dev:www
+
+# Start backend only (Strapi)
+pnpm dev:backend
+
+# Start frontend only (SolidJS)
+pnpm dev:frontend
+
+# Start all dev servers
+pnpm dev
 ```
 
-`tsup` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `acme-core` then instructs the consumer to select the correct format:
-
-```json:acme-core/package.json
-{
-  "name": "@acme/core",
-  "version": "0.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "sideEffects": false,
-}
-```
-
-Run `pnpm build` to confirm compilation is working correctly. You should see a folder `acme-core/dist` which contains the compiled output.
+### Building
 
 ```bash
-acme-core
-└── dist
-    ├── index.d.ts  <-- Types
-    ├── index.js    <-- CommonJS version
-    └── index.mjs   <-- ES Modules version
+# Build all packages and apps
+pnpm build
+
+# Build only gc-validators
+pnpm build:validators
+
+# Build all apps (backend + frontend)
+pnpm build:apps
+
+# Build all packages
+pnpm build:packages
 ```
 
-## Components
-
-Each file inside of `acme-core/src` is a component inside our design system. For example:
-
-```tsx:acme-core/src/Button.tsx
-import * as React from 'react';
-
-export interface ButtonProps {
-  children: React.ReactNode;
-}
-
-export function Button(props: ButtonProps) {
-  return <button>{props.children}</button>;
-}
-
-Button.displayName = 'Button';
-```
-
-When adding a new file, ensure the component is also exported from the entry `index.tsx` file:
-
-```tsx:acme-core/src/index.tsx
-import * as React from "react";
-export { Button, type ButtonProps } from "./Button";
-// Add new component exports here
-```
-
-## Storybook
-
-Storybook provides us with an interactive UI playground for our components. This allows us to preview our components in the browser and instantly see changes when developing locally. This example preconfigures Storybook to:
-
-- Use Vite to bundle stories instantly (in milliseconds)
-- Automatically find any stories inside the `stories/` folder
-- Support using module path aliases like `@acme-core` for imports
-- Write MDX for component documentation pages
-
-For example, here's the included Story for our `Button` component:
-
-```js:apps/docs/stories/button.stories.mdx
-import { Button } from '@acme-core/src';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-
-<Meta title="Components/Button" component={Button} />
-
-# Button
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur tempor, nisl nunc egestas nisi, euismod aliquam nisl nunc euismod.
-
-## Props
-
-<Props of={Box} />
-
-## Examples
-
-<Preview>
-  <Story name="Default">
-    <Button>Hello</Button>
-  </Story>
-</Preview>
-```
-
-This example includes a few helpful Storybook scripts:
-
-- `pnpm dev`: Starts Storybook in dev mode with hot reloading at `localhost:6006`
-- `pnpm build`: Builds the Storybook UI and generates the static HTML files
-- `pnpm preview-storybook`: Starts a local server to view the generated Storybook UI
-
-## Versioning & Publishing Packages
-
-This example uses [Changesets](https://github.com/changesets/changesets) to manage versions, create changelogs, and publish to npm. It's preconfigured so you can start publishing packages immediately.
-
-You'll need to create an `NPM_TOKEN` and `GITHUB_TOKEN` and add it to your GitHub repository settings to enable access to npm. It's also worth installing the [Changesets bot](https://github.com/apps/changeset-bot) on your repository.
-
-### Generating the Changelog
-
-To generate your changelog, run `pnpm changeset` locally:
-
-1. **Which packages would you like to include?** – This shows which packages and changed and which have remained the same. By default, no packages are included. Press `space` to select the packages you want to include in the `changeset`.
-1. **Which packages should have a major bump?** – Press `space` to select the packages you want to bump versions for.
-1. If doing the first major version, confirm you want to release.
-1. Write a summary for the changes.
-1. Confirm the changeset looks as expected.
-1. A new Markdown file will be created in the `changeset` folder with the summary and a list of the packages included.
-
-### Releasing
-
-When you push your code to GitHub, the [GitHub Action](https://github.com/changesets/action) will run the `release` script defined in the root `package.json`:
+### Testing
 
 ```bash
-turbo run build --filter=docs^... && changeset publish
+# Run all tests
+pnpm test
+
+# Run backend E2E tests
+pnpm test:backend
 ```
 
-Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `acme` as the npm organization. To change this, do the following:
+### Linting & Type Checking
 
-- Rename folders in `packages/*` to replace `acme` with your desired scope
-- Search and replace `acme` with your desired scope
-- Re-run `pnpm install`
+```bash
+# Lint all workspaces
+pnpm lint
 
-To publish packages to a private npm organization scope, **remove** the following from each of the `package.json`'s
+# Lint and auto-fix
+pnpm lint:fix
 
-```diff
-- "publishConfig": {
--  "access": "public"
-- },
+# Type check all workspaces
+pnpm typecheck
+
+# Format all code
+pnpm format
 ```
+
+### Dependency Management
+
+```bash
+# Update gc-validators in both apps
+pnpm update-validators
+
+# Update in frontend only
+pnpm update:frontend-validators
+
+# Update in backend only
+pnpm update:backend-validators
+
+# Install dependencies in all workspaces
+pnpm install:all
+```
+
+### Visualization
+
+```bash
+# Generate interactive dependency graph (HTML)
+pnpm graph
+
+# Generate dev dependency graph
+pnpm graph:dev
+
+# Generate build graph as PNG
+pnpm graph:build:all
+```
+
+### Cleanup
+
+```bash
+# Clean all build artifacts and caches
+pnpm clean
+```
+
+## Turborepo Configuration
+
+### Task Pipeline
+
+The `turbo.json` defines the following task pipeline:
+
+#### `build`
+
+- **Caching**: ✅ Enabled
+- **Dependencies**: Runs after `^build` (dependencies build first)
+- **Outputs**: `dist/`, `.output/`, `.nitro/`, `.strapi/`, `build/`
+- **Use Case**: Production builds
+
+#### `dev`
+
+- **Caching**: ❌ Disabled (always fresh)
+- **Persistent**: ✅ Long-running process
+- **Use Case**: Local development servers
+
+#### `lint`
+
+- **Caching**: ✅ Enabled
+- **Dependencies**: Runs after `^build` (needs built packages)
+- **Inputs**: Source files + config files
+- **Use Case**: Code quality checks
+
+#### `typecheck`
+
+- **Caching**: ✅ Enabled
+- **Dependencies**: Runs after `^build` (needs built types)
+- **Inputs**: TypeScript files + tsconfig files
+- **Use Case**: Type validation
+
+#### `test`
+
+- **Caching**: ✅ Enabled
+- **Dependencies**: Runs after `build` and `^build`
+- **Outputs**: `coverage/`
+- **Use Case**: Running test suites
+
+#### `format`
+
+- **Caching**: ❌ Disabled (modifies files)
+- **Use Case**: Code formatting
+
+#### `clean`
+
+- **Caching**: ❌ Disabled (cleanup task)
+- **Use Case**: Remove build artifacts
+
+### Environment Variables
+
+#### Shared Variables (globalEnv)
+
+These environment variables are shared between backend and frontend:
+
+- `PREVIEW_SECRET` - Preview mode authentication
+- `RECAPTCHA_SECRET_KEY` - reCAPTCHA server-side key
+- `SHARPSPRING_ID` - SharpSpring integration ID
+- `SHARPSPRING_SECRET_KEY` - SharpSpring API key
+- `TEAMWORK_AUTH_TOKEN` - Teamwork API token
+- `VITE_GA4_STREAM_ID` - Google Analytics 4 stream ID
+- `VITE_RECAPTCHA_SITE_KEY` - reCAPTCHA client-side key
+- `VITE_SHARPSPRING_CLIENT_ID` - SharpSpring client ID
+- `VITE_SHARPSPRING_DOMAIN_ID` - SharpSpring domain ID
+
+These are defined in `globalEnv` (affects cache keys) and `globalPassThroughEnv` (passed to tasks).
+
+#### Repository-Specific Variables
+
+Each app/package manages its own additional environment variables in their respective `.env` files.
+
+## Working with Git Submodules
+
+### Updating Submodules
+
+Submodules are typically updated from their respective directories:
+
+```bash
+# Update backend
+cd apps/backend
+git pull origin main
+cd ../..
+git add apps/backend
+git commit -m "Update backend submodule"
+
+# Update frontend
+cd apps/frontend
+git pull origin main
+cd ../..
+git add apps/frontend
+git commit -m "Update frontend submodule"
+```
+
+### Pulling All Submodules
+
+Occasionally, you may want to update all submodules from the root:
+
+```bash
+# Initialize and update all submodules
+git submodule update --init --recursive
+
+# Pull latest for all submodules
+git submodule update --remote --merge
+```
+
+### Making Changes in Submodules
+
+1. Navigate to the submodule directory
+2. Make changes and commit as normal
+3. Push to the submodule's repository
+4. Return to root and commit the submodule reference update
+
+```bash
+cd apps/backend
+# Make changes
+git add .
+git commit -m "Your changes"
+git push origin main
+cd ../..
+git add apps/backend
+git commit -m "Update backend submodule reference"
+```
+
+## How Turborepo Works with Submodules
+
+### File Hashing
+
+Turborepo's caching system works seamlessly with git submodules:
+
+- Each submodule's files are hashed independently
+- Changes in one submodule only invalidate caches for that workspace
+- Dependency relationships are respected (e.g., changing `gc-validators` rebuilds apps)
+
+### Task Dependencies
+
+The `^build` syntax means "run build on dependencies first":
+
+```mermaid
+graph TD
+    A[gc-validators build] --> B[backend build]
+    A --> C[frontend build]
+    B --> D[backend test]
+    C --> E[frontend test]
+```
+
+### Caching Strategy
+
+Turborepo caches based on:
+
+1. **Task inputs** - Source files, configs, environment variables
+2. **Task definition** - The task configuration in `turbo.json`
+3. **Dependency outputs** - Built artifacts from dependencies
+
+When you run `pnpm build`:
+
+1. First run: Builds everything, caches outputs
+2. Second run (no changes): Instant replay from cache (`>>> FULL TURBO`)
+3. Change `gc-validators`: Rebuilds validators + apps that depend on it
+4. Change `backend` only: Rebuilds only backend
+
+## Dependency Graph
+
+Your monorepo has the following dependency structure:
+
+```mermaid
+graph LR
+    GCV[gc-validators] --> BE[backend]
+    GCV --> FE[frontend]
+    CP[config-prettier] --> BE
+    CP --> FE
+    CP --> GCV
+    CE[config-eslint] --> FE
+    CT[config-typescript] --> BE
+    CT --> FE
+    CT --> GCV
+    CS[client-styleguides] --> FE
+    SB[strapi-blocks-solid-renderer] --> FE
+```
+
+## Best Practices
+
+### 1. Let Turborepo Handle Orchestration
+
+✅ **Do**: Use Turborepo filters
+
+```bash
+pnpm dev:backend  # Uses: turbo dev --filter=gc-strapi
+```
+
+❌ **Don't**: Bypass Turborepo
+
+```bash
+cd apps/backend && pnpm dev
+```
+
+### 2. Leverage Caching
+
+- Run `pnpm build` twice to verify caching works
+- Check for `>>> FULL TURBO` in output
+- Use `--force` to bypass cache when needed
+
+### 3. Use Filters Effectively
+
+```bash
+# Run task in specific workspace
+turbo build --filter=gc-strapi
+
+# Run task in workspace and dependencies
+turbo build --filter=gc-strapi...
+
+# Run task in multiple workspaces
+turbo build --filter=gc-strapi --filter=gc-cf-www-ssr
+
+# Run task in all apps
+turbo build --filter='./apps/*'
+
+# Run task in all packages
+turbo build --filter='./packages/*'
+```
+
+### 4. Understand Cache Invalidation
+
+Caches are invalidated when:
+
+- Source files change
+- Configuration files change
+- Environment variables change
+- Dependencies are updated
+- Task definition changes
+
+### 5. Keep Submodules Updated
+
+Since `gc-validators` is used by both apps with explicit versioning:
+
+1. Make changes in `packages/gc-validators`
+2. Publish new version to npm
+3. Update version in `apps/backend/package.json` and `apps/frontend/package.json`
+4. Run `pnpm update-validators` or update manually
+
+## Troubleshooting
+
+### Cache Issues
+
+**Problem**: Stale cache causing issues
+
+**Solution**:
+
+```bash
+# Clear Turborepo cache
+rm -rf .turbo
+
+# Force rebuild without cache
+pnpm build --force
+```
+
+### Submodule Out of Sync
+
+**Problem**: Submodule reference doesn't match actual commit
+
+**Solution**:
+
+```bash
+# Reset submodule to committed reference
+git submodule update --init --recursive
+
+# Or update to latest
+git submodule update --remote --merge
+```
+
+### Build Fails After Submodule Update
+
+**Problem**: Turborepo doesn't detect submodule changes
+
+**Solution**:
+
+```bash
+# Force rebuild
+pnpm build --force
+
+# Or clear cache and rebuild
+pnpm clean
+pnpm build
+```
+
+### Environment Variables Not Working
+
+**Problem**: Shared env vars not being passed to tasks
+
+**Solution**:
+
+1. Ensure vars are in `globalEnv` and `globalPassThroughEnv` in `turbo.json`
+2. Check that vars are defined in your shell or `.env` files
+3. Restart dev servers after changing env vars
+
+### Dependency Not Building First
+
+**Problem**: App builds before its dependency
+
+**Solution**:
+
+- Verify `dependsOn: ["^build"]` in `turbo.json`
+- Check that dependency has a `build` script in its `package.json`
+- Ensure workspace names match in filters
+
+## CI/CD Integration
+
+### GitHub Actions Example
+
+```yaml
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 10.24.0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - run: pnpm install
+
+      - run: pnpm build
+
+      - run: pnpm typecheck
+
+      - run: pnpm lint
+
+      - run: pnpm test
+```
+
+## Additional Resources
+
+- [Turborepo Documentation](https://turbo.build/repo/docs)
+- [Turborepo Handbook](https://turbo.build/repo/docs/handbook)
+- [Git Submodules Documentation](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+- [pnpm Workspaces](https://pnpm.io/workspaces)
+
+## Package Versions
+
+- **Turborepo**: ^2.6.1
+- **pnpm**: 10.24.0
+- **Node**: >=20
+
+## License
+
+SEE LICENSE

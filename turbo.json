@@ -1,31 +1,81 @@
 {
-	"$schema": "https://turbo.build/schema.json",
-	"tasks": {
-		"dev": {
-			"cache": false
-		},
-		"clean": {
-			"cache": false
-		},
-		"format": {
-			"cache": false
-		},
-		"lint": {
-			"cache": false
-		},
-		"test": {
-			"dependsOn": []
-		},
-		"typecheck": {
-			"cache": false
-		},
-		"build": {
-			"dependsOn": [
-				"^build"
-			],
-			"outputs": [
-				"dist/**"
-			]
-		}
-	}
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "NODE_ENV",
+    "CI",
+    "PREVIEW_SECRET",
+    "RECAPTCHA_SECRET_KEY",
+    "SHARPSPRING_ID",
+    "SHARPSPRING_SECRET_KEY",
+    "TEAMWORK_AUTH_TOKEN",
+    "VITE_GA4_STREAM_ID",
+    "VITE_RECAPTCHA_SITE_KEY",
+    "VITE_SHARPSPRING_CLIENT_ID",
+    "VITE_SHARPSPRING_DOMAIN_ID"
+  ],
+  "globalPassThroughEnv": [
+    "NODE_ENV",
+    "PREVIEW_SECRET",
+    "RECAPTCHA_SECRET_KEY",
+    "SHARPSPRING_ID",
+    "SHARPSPRING_SECRET_KEY",
+    "TEAMWORK_AUTH_TOKEN",
+    "VITE_GA4_STREAM_ID",
+    "VITE_RECAPTCHA_SITE_KEY",
+    "VITE_SHARPSPRING_CLIENT_ID",
+    "VITE_SHARPSPRING_DOMAIN_ID"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env.production"],
+      "outputs": [
+        "dist/**",
+        ".output/**",
+        ".nitro/**",
+        ".strapi/**",
+        "build/**",
+        ".next/**"
+      ],
+      "env": ["NODE_ENV"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "src/**/*.{ts,tsx,js,jsx}",
+        "**/.eslintrc*",
+        "**/.prettierrc*",
+        "**/eslint.config.*",
+        "**/prettier.config.*"
+      ],
+      "outputs": []
+    },
+    "format": {
+      "cache": false,
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.{ts,tsx}", "**/tsconfig.json", "**/tsconfig.*.json"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["build", "^build"],
+      "inputs": [
+        "src/**/*.{ts,tsx,js,jsx}",
+        "tests/**/*",
+        "**/__tests__/**/*",
+        "**/jest.config.*",
+        "**/vitest.config.*"
+      ],
+      "outputs": ["coverage/**"]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
 }
