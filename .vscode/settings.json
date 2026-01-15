@@ -11,5 +11,15 @@
     "MD033": {
       "allowed_elements": ["nobr", "sup", "a", "br"]
     }
+  },
+  "[javascript,javascriptreact,typescript,typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
   }
 }

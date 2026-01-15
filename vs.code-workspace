@@ -13,10 +13,6 @@
       "path": "./aws"
     },
     {
-      "name": "data",
-      "path": "./data"
-    },
-    {
       "name": "validators",
       "path": "./packages/gc-validators"
     },
