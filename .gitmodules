@@ -12,10 +12,6 @@
 	path = apps/frontend
 	url = git@github.com:GetCommunity/gc-cf-www-ssr.git
 	branch = main
-[submodule "apps/gcemail"]
-	path = apps/gcemail
-	url = git@github.com:GetCommunity/gcemail.git
-	branch = main
 [submodule "apps/gcui-docs"]
 	path = apps/gcui-docs
 	url = git@github.com:GetCommunity/gcui-docs.git
@@ -37,10 +33,6 @@
 	path = packages/config-prettier
 	url = git@github.com:GetCommunity/config-prettier.git
 	branch = main
-[submodule "packages/email-builder"]
-	path = packages/email-builder
-	url = git@github.com:GetCommunity/email-builder.git
-	branch = main
 [submodule "packages/gc-validators"]
 	path = packages/gc-validators
 	url = git@github.com:GetCommunity/gc-validators.git
@@ -52,3 +44,12 @@
 [submodule "data"]
 	path = data
 	url = git@github.com:GetCommunity/gc-data.git
+# Email Modules
+[submodule "email/gcemail"]
+	path = email/gcemail
+	url = git@github.com:GetCommunity/gcemail.git
+	branch = main
+[submodule "email/email-builder"]
+	path = email/email-builder
+	url = git@github.com:GetCommunity/email-builder.git
+	branch = main

@@ -1,0 +1,9 @@
+# Get Community LLMs Referenses
+
+## Data Validation
+
+- [valibot llms.txt](https://valibot.dev/llms.txt)
+
+## Forms
+
+- [@formisch/solid llms.txt](https://formisch.dev/llms-solid.txt)

@@ -24,10 +24,15 @@ lerna-debug.log
 
 # local env files
 .env
+.env.*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+!.env.example
+
+# database dumps
+assets/db/init/*.dump
 
 # local content
 .content
@@ -46,6 +51,9 @@ aws
 .output
 server/dist
 public/dist
+
+# traefik
+traefik/certs
 
 # Misc
 .idea

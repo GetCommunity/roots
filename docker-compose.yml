@@ -1,0 +1,264 @@
+services:
+  # ================================
+  # Traefik Reverse Proxy
+  # ================================
+  traefik:
+    image: traefik:v2.11
+    container_name: gc-www-traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"       # HTTP
+      - "443:443"     # HTTPS
+      - "8080:8080"   # Traefik Dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./traefik/dynamic.yml:/etc/traefik/dynamic.yml:ro
+      - ./traefik/certs:/certs:ro
+    networks:
+      - gc-www-network
+
+  # ================================
+  # PostgreSQL Database
+  # ================================
+  postgres:
+    image: postgres:18
+    container_name: gc-www-postgres
+    restart: unless-stopped
+    env_file:
+      - .env.backend
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME:-dev_db}
+      POSTGRES_USER: ${DATABASE_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-postgres}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - gc-www-db-data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    networks:
+      - gc-www-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME:-postgres} -d ${DATABASE_NAME:-dev_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ================================
+  # pgAdmin - Database Management
+  # ================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: gc-www-pgadmin
+    restart: unless-stopped
+    env_file:
+      - .env.backend
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@getcommunity.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+    ports:
+      - "5555:80"
+    volumes:
+      - gc-www-pgadmin-data:/var/lib/pgadmin
+    networks:
+      - gc-www-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ================================
+  # Backend - Strapi API
+  # ================================
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    image: getcommunity/www-backend:latest
+    container_name: gc-www-backend
+    restart: unless-stopped
+    env_file:
+      - .env.backend
+    environment:
+      HOST: ${HOST}
+      PORT: ${PORT}
+      PUBLIC_URL: ${PUBLIC_URL}
+      ADMIN_COOKIE_DOMAIN: ${ADMIN_COOKIE_DOMAIN}
+      APP_KEYS: ${APP_KEYS}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
+      JWT_SECRET: ${JWT_SECRET}
+      RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY}
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_SSL: ${DATABASE_SSL}
+      DATABASE_SSL_REJECT_UNAUTHORIZED: ${DATABASE_SSL_REJECT_UNAUTHORIZED}
+      DATABASE_URL: ${DATABASE_URL}
+      SENTRY_DSN: ${SENTRY_DSN}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_ACCESS_SECRET: ${AWS_ACCESS_SECRET}
+      AWS_REGION: ${AWS_REGION}
+      AWS_BUCKET: ${AWS_BUCKET}
+      AWS_CDN_URL: ${AWS_CDN_URL}
+      CLIENT_URL: ${CLIENT_URL}
+      PREVIEW_SECRET: ${PREVIEW_SECRET}
+    ports:
+      - "1337:1337"
+    volumes:
+      - ./apps/backend/config:/opt/app/config
+      - ./apps/backend/src:/opt/app/src
+      - ./apps/backend/package.json:/opt/package.json
+      - ./apps/backend/pnpm-lock.yaml:/opt/pnpm-lock.yaml
+      - ./.env.backend:/opt/app/.env
+      - ./apps/backend/public/uploads:/opt/app/public/uploads
+    networks:
+      - gc-www-network
+    labels:
+      - "traefik.enable=true"
+      # HTTPS router for /api routes
+      - "traefik.http.routers.backend-api.rule=Host(`localhost`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.backend-api.entrypoints=websecure"
+      - "traefik.http.routers.backend-api.tls=true"
+      - "traefik.http.routers.backend-api.priority=10"
+      # HTTPS router for /admin routes (Strapi admin panel)
+      - "traefik.http.routers.backend-admin.rule=Host(`localhost`) && PathPrefix(`/admin`)"
+      - "traefik.http.routers.backend-admin.entrypoints=websecure"
+      - "traefik.http.routers.backend-admin.tls=true"
+      - "traefik.http.routers.backend-admin.priority=20"
+      - "traefik.http.routers.backend-health.rule=Host(`localhost`) && PathPrefix(`/_health`)"
+      - "traefik.http.routers.backend-health.entrypoints=websecure"
+      - "traefik.http.routers.backend-health.tls=true"
+      - "traefik.http.routers.backend-health.priority=30"
+      - "traefik.http.routers.backend-graphql.rule=Host(`localhost`) && PathPrefix(`/graphql`)"
+      - "traefik.http.routers.backend-graphql.entrypoints=websecure"
+      - "traefik.http.routers.backend-graphql.tls=true"
+      - "traefik.http.routers.backend-graphql.priority=40" 
+      - "traefik.http.routers.backend-content-manager.rule=Host(`localhost`) && PathPrefix(`/content-manager`)"
+      - "traefik.http.routers.backend-content-manager.entrypoints=websecure"
+      - "traefik.http.routers.backend-content-manager.tls=true"
+      - "traefik.http.routers.backend-content-manager.priority=50" 
+      - "traefik.http.routers.backend-content-type-builder.rule=Host(`localhost`) && PathPrefix(`/content-type-builder`)"
+      - "traefik.http.routers.backend-content-type-builder.entrypoints=websecure"
+      - "traefik.http.routers.backend-content-type-builder.tls=true"
+      - "traefik.http.routers.backend-content-type-builder.priority=60" 
+      - "traefik.http.routers.backend-email.rule=Host(`localhost`) && PathPrefix(`/email`)"
+      - "traefik.http.routers.backend-email.entrypoints=websecure"
+      - "traefik.http.routers.backend-email.tls=true"
+      - "traefik.http.routers.backend-email.priority=70" 
+      - "traefik.http.routers.backend-upload.rule=Host(`localhost`) && PathPrefix(`/upload`)"
+      - "traefik.http.routers.backend-upload.entrypoints=websecure"
+      - "traefik.http.routers.backend-upload.tls=true"
+      - "traefik.http.routers.backend-upload.priority=80" 
+      - "traefik.http.routers.backend-i18n.rule=Host(`localhost`) && PathPrefix(`/i18n`)"
+      - "traefik.http.routers.backend-i18n.entrypoints=websecure"
+      - "traefik.http.routers.backend-i18n.tls=true"
+      - "traefik.http.routers.backend-i18n.priority=90" 
+      - "traefik.http.routers.backend-seo.rule=Host(`localhost`) && PathPrefix(`/seo`)"
+      - "traefik.http.routers.backend-seo.entrypoints=websecure"
+      - "traefik.http.routers.backend-seo.tls=true"
+      - "traefik.http.routers.backend-seo.priority=100" 
+      - "traefik.http.routers.backend-comments.rule=Host(`localhost`) && PathPrefix(`/comments`)"
+      - "traefik.http.routers.backend-comments.entrypoints=websecure"
+      - "traefik.http.routers.backend-comments.tls=true"
+      - "traefik.http.routers.backend-comments.priority=110" 
+      - "traefik.http.routers.backend-strapi-plugin-cron.rule=Host(`localhost`) && PathPrefix(`/strapi-plugin-cron`)"
+      - "traefik.http.routers.backend-strapi-plugin-cron.entrypoints=websecure"
+      - "traefik.http.routers.backend-strapi-plugin-cron.tls=true"
+      - "traefik.http.routers.backend-strapi-plugin-cron.priority=120" 
+      - "traefik.http.routers.backend-users-permissions.rule=Host(`localhost`) && PathPrefix(`/users-permissions`)"
+      - "traefik.http.routers.backend-users-permissions.entrypoints=websecure"
+      - "traefik.http.routers.backend-users-permissions.tls=true"
+      - "traefik.http.routers.backend-users-permissions.priority=130" 
+      # Load balancer service (shared by both routers)
+      - "traefik.http.services.backend.loadbalancer.server.port=1337"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "https://localhost/_health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    depends_on:
+      traefik:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+
+  # ================================
+  # Frontend - Web Application
+  # ================================
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile
+    image: getcommunity/www-frontend:latest
+    container_name: gc-www-frontend
+    restart: unless-stopped
+    env_file:
+      - .env.frontend
+    environment:
+      PREVIEW_SECRET: ${PREVIEW_SECRET}
+      RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY}
+      SHARPSPRING_ID: ${SHARPSPRING_ID}
+      SHARPSPRING_SECRET_KEY: ${SHARPSPRING_SECRET_KEY}
+      STRAPI_API_KEY_FULL: ${STRAPI_API_KEY_FULL}
+      STRAPI_BASE_URL: ${STRAPI_BASE_URL}
+      TEAMWORK_AUTH_TOKEN: ${TEAMWORK_AUTH_TOKEN}
+      VITE_ENABLE_AUTH: ${VITE_ENABLE_AUTH}
+      VITE_GA4_STREAM_ID: ${VITE_GA4_STREAM_ID}
+      VITE_RECAPTCHA_SITE_KEY: ${VITE_RECAPTCHA_SITE_KEY}
+      VITE_SESSION_SECRET: ${VITE_SESSION_SECRET}
+      VITE_SHARPSPRING_CLIENT_ID: ${VITE_SHARPSPRING_CLIENT_ID}
+      VITE_SHARPSPRING_DOMAIN_ID: ${VITE_SHARPSPRING_DOMAIN_ID}
+      VITE_STRAPI_API_KEY_READ: ${VITE_STRAPI_API_KEY_READ}
+      VITE_STRAPI_URL: ${VITE_STRAPI_URL}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/frontend/src:/opt/app/src
+      - ./apps/frontend/package.json:/opt/package.json
+      - ./apps/frontend/pnpm-lock.yaml:/opt/pnpm-lock.yaml
+      - ./.env.frontend:/opt/app/.env
+    networks:
+      - gc-www-network
+    labels:
+      - "traefik.enable=true"
+      # HTTPS router for all other routes (catch-all)
+      - "traefik.http.routers.frontend-root.rule=Host(`localhost`)"
+      - "traefik.http.routers.frontend-root.entrypoints=websecure"
+      - "traefik.http.routers.frontend-root.tls=true"
+      - "traefik.http.routers.frontend-root.priority=1"
+      # HTTPS router for assets
+      - "traefik.http.routers.frontend-assets.rule=Host(`localhost`) && PathPrefix(`/assets`)"
+      - "traefik.http.routers.frontend-assets.entrypoints=websecure"
+      - "traefik.http.routers.frontend-assets.tls=true"
+      - "traefik.http.routers.frontend-assets.priority=2"
+      # Load balancer service (shared by both routers)
+      - "traefik.http.services.frontend.loadbalancer.server.port=3000"
+    depends_on:
+      traefik:
+        condition: service_started
+      backend:
+        condition: service_started
+
+# ================================
+# Networks
+# ================================
+networks:
+  gc-www-network:
+    driver: bridge
+
+# ================================
+# Volumes
+# ================================
+volumes:
+  gc-www-db-data:
+    driver: local
+  gc-www-pgadmin-data:
+    driver: local

@@ -24,5 +24,9 @@
       "name": "frontend",
       "path": "./apps/frontend"
     },
+    {
+      "name": "gcemail",
+      "path": "./email/gcemail"
+    },
   ]
 }
