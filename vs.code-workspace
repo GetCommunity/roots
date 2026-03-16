@@ -9,8 +9,12 @@
       "path": "./docs"
     },
     {
-      "name": "aws",
-      "path": "./aws"
+      "name": "data",
+      "path": "./data"
+    },
+    {
+      "name": "aws-infra",
+      "path": "./aws-infra"
     },
     {
       "name": "validators",
@@ -23,10 +27,6 @@
     {
       "name": "frontend",
       "path": "./apps/frontend"
-    },
-    {
-      "name": "gcemail",
-      "path": "./email/gcemail"
-    },
+    }
   ]
 }

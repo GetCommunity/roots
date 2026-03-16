@@ -3,7 +3,7 @@
 	path = docs
 	url = git@github.com:GetCommunity/docs.git
 	branch = main
-# Apps Submodules
+# GC WWW Applications
 [submodule "apps/backend"]
 	path = apps/backend
 	url = git@github.com:GetCommunity/gc-strapi.git
@@ -16,7 +16,7 @@
 	path = apps/gcui-docs
 	url = git@github.com:GetCommunity/gcui-docs.git
 	branch = main
-# Packages Submodules
+# GC WWW Packages
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
 	url = git@github.com:GetCommunity/client-styleguides.git
@@ -41,9 +41,6 @@
 	path = packages/strapi-blocks-solid-renderer
 	url = git@github.com:GetCommunity/strapi-blocks-solid-renderer.git
 	branch = main
-[submodule "data"]
-	path = data
-	url = git@github.com:GetCommunity/gc-data.git
 # Email Modules
 [submodule "email/gcemail"]
 	path = email/gcemail
@@ -52,4 +49,14 @@
 [submodule "email/email-builder"]
 	path = email/email-builder
 	url = git@github.com:GetCommunity/email-builder.git
+	branch = main
+# Infrastructure Modules
+[submodule "aws-infra"]
+	path = aws-infra
+	url = git@github.com:GetCommunity/gc-www-aws-stack.git
+	branch = main
+# Data Modules
+[submodule "data"]
+	path = data
+	url = git@github.com:GetCommunity/gc-data.git
 	branch = main
