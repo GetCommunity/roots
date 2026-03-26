@@ -7,8 +7,7 @@ This monorepo uses [Turborepo](https://turbo.build/repo) to manage the GetCommun
 ### Apps (Git Submodules in `apps/`)
 
 - **backend** (`gc-strapi`) - Strapi CMS backend deployed to AWS EC2
-- **frontend** (`gc-cf-www-ssr`) - SolidJS frontend deployed via Cloudflare Pages
-- **gcui-docs** - UI documentation site
+- **frontend** (`gc-www`) - SolidJS frontend deployed via Cloudflare Pages
 
 ### Packages (Git Submodules in `packages/`)
 
@@ -353,7 +352,7 @@ turbo build --filter=gc-strapi
 turbo build --filter=gc-strapi...
 
 # Run task in multiple workspaces
-turbo build --filter=gc-strapi --filter=gc-cf-www-ssr
+turbo build --filter=gc-strapi --filter=gc-www
 
 # Run task in all apps
 turbo build --filter='./apps/*'

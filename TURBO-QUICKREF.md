@@ -77,7 +77,7 @@ turbo build --filter=@getcommunity/gc-validators...
 turbo build --filter=...@getcommunity/gc-validators
 
 # Build multiple packages
-turbo build --filter=gc-strapi --filter=gc-cf-www-ssr
+turbo build --filter=gc-strapi --filter=gc-www
 
 # Build all apps
 turbo build --filter='./apps/*'
@@ -173,4 +173,4 @@ pnpm build --force
 ## Learn More
 
 - Full documentation: [TURBO-README.md](file:///Users/joeyg/GitGC/@getcommunity/TURBO-README.md)
-- Official docs: https://turbo.build/repo/docs
+- Official docs: <https://turbo.build/repo/docs>
