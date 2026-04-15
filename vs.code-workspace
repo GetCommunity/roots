@@ -9,6 +9,10 @@
       "path": "./docs"
     },
     {
+      "name": "gcemail",
+      "path": "./gcemail"
+    },
+    {
       "name": "data",
       "path": "./data"
     },

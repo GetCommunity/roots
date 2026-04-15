@@ -1,4 +1,6 @@
 packages:
   - apps/*
   - packages/*
-  - email/*
+  - gcemail/
+allowBuilds:
+  '@apollo/protobufjs': false

@@ -21,10 +21,6 @@
 	path = packages/config-typescript
 	url = git@github.com:GetCommunity/config-typescript.git
 	branch = main
-[submodule "packages/config-eslint"]
-	path = packages/config-eslint
-	url = git@github.com:GetCommunity/config-eslint.git
-	branch = main
 [submodule "packages/config-prettier"]
 	path = packages/config-prettier
 	url = git@github.com:GetCommunity/config-prettier.git
