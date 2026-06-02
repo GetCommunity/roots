@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "license": "SEE LICENSE",
-  "packageManager": "pnpm@11.0.8",
+  "packageManager": "pnpm@11.1.1",
   "private": true,
   "repository": "getcommunity/roots.git",
   "scripts": {

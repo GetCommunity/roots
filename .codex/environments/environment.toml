@@ -3,9 +3,9 @@ version = 1
 name = "@getcommunity"
 
 [setup]
-script = "pnpm install"
-
-[[actions]]
-name = ""
-icon = "tool"
-command = ""
+script = '''
+nvm use 24
+corepack enable
+corepack prepare pnpm@latest --activate
+pnpm install
+'''
