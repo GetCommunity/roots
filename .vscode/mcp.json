@@ -2,6 +2,10 @@
   "servers": {
     "tanstack": {
       "url": "https://tanstack.com/api/mcp"
+    },
+    "strapi-docs": {
+      "type": "http",
+      "url": "https://strapi-docs.mcp.kapa.ai"
     }
   }
 }

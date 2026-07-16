@@ -48,3 +48,6 @@
 	path = data
 	url = git@github.com:GetCommunity/gc-data.git
 	branch = main
+[submodule "apps/gcft-interactive"]
+	path = apps/gcft-interactive
+	url = git@github.com:GetCommunity/gcft-interactive.git

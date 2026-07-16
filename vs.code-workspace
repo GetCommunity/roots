@@ -21,6 +21,10 @@
       "path": "./aws-infra"
     },
     {
+      "name": "client-styleguides",
+      "path": "./packages/client-styleguides"
+    },
+    {
       "name": "validators",
       "path": "./packages/gc-validators"
     },
@@ -31,6 +35,10 @@
     {
       "name": "frontend",
       "path": "./apps/frontend"
+    },
+    {
+      "name": "gcft",
+      "path": "./apps/gcft-interactive"
     }
   ]
 }
