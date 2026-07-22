@@ -12,3 +12,6 @@ allowBuilds:
   sharp: set this to true or false
   sqlite3: set this to true or false
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@getcommunity/config-prettier@0.1.6'
+  - '@getcommunity/config-typescript@0.0.25'
