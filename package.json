@@ -7,12 +7,12 @@
     "Joey Grable <joey@getcommunity.com> (https://joeygrable.com)"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.31.1",
-    "@getcommunity/config-prettier": "^0.1.5",
-    "concurrently": "^10.0.3",
+    "@changesets/cli": "^3.0.2",
+    "concurrently": "^10.0.5",
     "depcheck": "^1.4.7",
-    "syncpack": "15.3.2",
-    "turbo": "^2.10.5",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "syncpack": "15.3.3",
+    "turbo": "^2.10.12",
     "typescript": "^5.3"
   },
   "keywords": [],
@@ -24,7 +24,7 @@
     "dev:www": "turbo dev --filter=gc-strapi --filter=gc-www",
     "dev:backend": "turbo dev --filter=gc-strapi",
     "dev:frontend": "turbo dev --filter=gc-www",
-    "test:backend": "cd apps/backend && pnpm test:e2e:server",
+    "test:backend": "cd apps/backend && pnpm test",
     "install-update": "pnpm install:backend && pnpm install:frontend",
     "install:backend": "cd apps/backend && pnpm install",
     "install:frontend": "cd apps/frontend && pnpm install",

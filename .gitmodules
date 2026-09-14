@@ -3,7 +3,7 @@
 	path = docs
 	url = git@github.com:GetCommunity/docs.git
 	branch = main
-# GC WWW Applications
+# Applications
 [submodule "apps/backend"]
 	path = apps/backend
 	url = git@github.com:GetCommunity/gc-strapi.git
@@ -12,18 +12,14 @@
 	path = apps/frontend
 	url = git@github.com:GetCommunity/gc-www.git
 	branch = main
-# GC WWW Packages
+[submodule "apps/gcft-interactive"]
+	path = apps/gcft-interactive
+	url = git@github.com:GetCommunity/gcft-interactive.git
+	branch = main
+# Packages
 [submodule "packages/client-styleguides"]
 	path = packages/client-styleguides
 	url = git@github.com:GetCommunity/client-styleguides.git
-	branch = main
-[submodule "packages/config-typescript"]
-	path = packages/config-typescript
-	url = git@github.com:GetCommunity/config-typescript.git
-	branch = main
-[submodule "packages/config-prettier"]
-	path = packages/config-prettier
-	url = git@github.com:GetCommunity/config-prettier.git
 	branch = main
 [submodule "packages/gc-validators"]
 	path = packages/gc-validators
@@ -32,6 +28,10 @@
 [submodule "packages/strapi-blocks-solid-renderer"]
 	path = packages/strapi-blocks-solid-renderer
 	url = git@github.com:GetCommunity/strapi-blocks-solid-renderer.git
+	branch = main
+[submodule "packages/ts-kit"]
+	path = packages/ts-kit
+	url = git@github.com:GetCommunity/ts-kit.git
 	branch = main
 # Email Modules
 [submodule "email/gcemail"]
@@ -48,6 +48,3 @@
 	path = data
 	url = git@github.com:GetCommunity/gc-data.git
 	branch = main
-[submodule "apps/gcft-interactive"]
-	path = apps/gcft-interactive
-	url = git@github.com:GetCommunity/gcft-interactive.git

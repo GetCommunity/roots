@@ -1,11 +1,11 @@
 packages:
   # - apps/*
   - packages/*
-  - '!packages/gc-validators'
+  - "!packages/gc-validators"
   - gcemail/
 allowBuilds:
-  '@apollo/protobufjs': set this to true or false
-  '@swc/core': set this to true or false
+  "@apollo/protobufjs": set this to true or false
+  "@swc/core": set this to true or false
   better-sqlite3: set this to true or false
   core-js-pure: set this to true or false
   esbuild: true
@@ -13,5 +13,4 @@ allowBuilds:
   sqlite3: set this to true or false
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - '@getcommunity/config-prettier@0.1.6'
-  - '@getcommunity/config-typescript@0.0.25'
+  - "@solidjs/vite-plugin"
