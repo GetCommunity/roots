@@ -13,6 +13,10 @@
       "path": "./aws-infra"
     },
     {
+      "name": "data",
+      "path": "./data"
+    },
+    {
       "name": "pkg: ts-kit",
       "path": "./packages/ts-kit"
     },
