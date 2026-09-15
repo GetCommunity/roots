@@ -7,12 +7,12 @@
     "Joey Grable <joey@getcommunity.com> (https://joeygrable.com)"
   ],
   "devDependencies": {
-    "@changesets/cli": "^3.0.2",
+    "@changesets/cli": "^3.0.3",
     "concurrently": "^10.0.5",
     "depcheck": "^1.4.7",
     "prettier-plugin-organize-imports": "^4.3.0",
     "syncpack": "15.3.3",
-    "turbo": "^2.10.12",
+    "turbo": "^2.10.13",
     "typescript": "^5.3"
   },
   "keywords": [],
