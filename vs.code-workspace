@@ -6,47 +6,47 @@
     },
     {
       "name": "docs",
-      "path": "./docs"
+      "path": "docs"
     },
     {
       "name": "aws-infra",
-      "path": "./aws-infra"
+      "path": "aws-infra"
     },
     {
       "name": "data",
-      "path": "./data"
+      "path": "data"
     },
     {
       "name": "gcemail",
-      "path": "./gcemail"
+      "path": "gcemail"
     },
     {
       "name": "pkg: ts-kit",
-      "path": "./packages/ts-kit"
+      "path": "packages/ts-kit"
     },
     {
       "name": "pkg: strapi-blocks-solid-renderer",
-      "path": "./packages/strapi-blocks-solid-renderer"
+      "path": "packages/strapi-blocks-solid-renderer"
     },
     {
       "name": "pkg: client-styleguides",
-      "path": "./packages/client-styleguides"
+      "path": "packages/client-styleguides"
     },
     {
       "name": "pkg: gc-validators",
-      "path": "./packages/gc-validators"
+      "path": "packages/gc-validators"
     },
     {
       "name": "app: backend",
-      "path": "./apps/backend"
+      "path": "apps/backend"
     },
     {
       "name": "app: frontend",
-      "path": "./apps/frontend"
+      "path": "apps/frontend"
     },
     {
       "name": "app: gcft",
-      "path": "./apps/gcft-interactive"
+      "path": "apps/gcft-interactive"
     }
   ]
 }
