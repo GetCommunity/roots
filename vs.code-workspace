@@ -17,6 +17,10 @@
       "path": "./data"
     },
     {
+      "name": "gcemail",
+      "path": "./gcemail"
+    },
+    {
       "name": "pkg: ts-kit",
       "path": "./packages/ts-kit"
     },
