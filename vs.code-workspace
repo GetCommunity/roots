@@ -18,7 +18,7 @@
     },
     {
       "name": "gcemail",
-      "path": "gcemail"
+      "path": "packages/gcemail"
     },
     {
       "name": "pkg: ts-kit",
