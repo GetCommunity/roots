@@ -12,6 +12,10 @@
 	path = apps/frontend
 	url = git@github.com:GetCommunity/gc-www.git
 	branch = main
+[submodule "apps/frontend-solid2"]
+	path = apps/frontend-solid2
+	url = git@github.com:GetCommunity/gc-www-2.git
+	branch = main
 [submodule "apps/gcft-interactive"]
 	path = apps/gcft-interactive
 	url = git@github.com:GetCommunity/gcft-interactive.git

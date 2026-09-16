@@ -71,6 +71,3 @@ gcemail/html/**
 gcemail/mjml/**
 !gcemail/html/.gitkeep
 !gcemail/mjml/.gitkeep
-
-# TEMP frontend apps
-apps/frontend-*/**

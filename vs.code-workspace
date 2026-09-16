@@ -45,6 +45,10 @@
       "path": "apps/frontend"
     },
     {
+      "name": "app: frontend solidjs 2",
+      "path": "apps/frontend-solid2"
+    },
+    {
       "name": "app: gcft",
       "path": "apps/gcft-interactive"
     }
