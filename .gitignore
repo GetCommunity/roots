@@ -40,7 +40,6 @@ assets/db/init/*.dump
 
 # aws
 .aws
-aws
 
 # turbo
 .turbo

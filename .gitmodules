@@ -42,6 +42,10 @@
 	url = git@github.com:GetCommunity/ts-kit.git
 	branch = main
 # Infrastructure Modules
+[submodule "aws"]
+	path = aws
+	url = https://github.com/GetCommunity/gc-aws-stack
+	branch = main
 [submodule "aws-infra"]
 	path = aws-infra
 	url = git@github.com:GetCommunity/gc-www-aws-stack.git
