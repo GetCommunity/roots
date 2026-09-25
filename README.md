@@ -17,7 +17,7 @@ A core library of shared packages and applications maintained by Get Community, 
 ## Apps
 
 - [@getcommunity/gcemail](https://github.com/getcommunity/gcemail): An application for building, compiling and creating UTM link segmented custom emails for [Get Community email](https://getcommunity.com/products/marketing-automation/) clients.
-- [@getcommunity/gc-strapi](https://github.com/getcommunity/gc-strapi): The backend application code for [strapi.GetCommunity.com](https://strapi.getcommunity.com/)
+- [@getcommunity/gc-strapi](https://github.com/getcommunity/gc-strapi): The backend application code for [cms.GetCommunity.com](https://cms.getcommunity.com/)
 - [@getcommunity/gc-www](https://github.com/getcommunity/gc-www): The frontend application code for [www.GetCommunity.com](https://www.getcommunity.com/)
 
 ## Documentation
