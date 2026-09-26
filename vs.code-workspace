@@ -9,10 +9,6 @@
       "path": "docs"
     },
     {
-      "name": "aws-infra",
-      "path": "aws-infra"
-    },
-    {
       "name": "aws",
       "path": "aws"
     },

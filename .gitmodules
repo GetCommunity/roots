@@ -46,10 +46,6 @@
 	path = aws
 	url = https://github.com/GetCommunity/gc-aws-stack
 	branch = main
-[submodule "aws-infra"]
-	path = aws-infra
-	url = git@github.com:GetCommunity/gc-www-aws-stack.git
-	branch = main
 # Data Modules
 [submodule "data"]
 	path = data
