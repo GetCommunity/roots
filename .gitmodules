@@ -51,3 +51,6 @@
 	path = data
 	url = git@github.com:GetCommunity/gc-data.git
 	branch = main
+[submodule "data-etl"]
+	path = data-etl
+	url = git@github.com:GetCommunity/gc-data-etl.git

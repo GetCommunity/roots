@@ -17,6 +17,10 @@
       "path": "data"
     },
     {
+      "name": "etl",
+      "path": "data-etl"
+    },
+    {
       "name": "gcemail",
       "path": "packages/gcemail"
     },
