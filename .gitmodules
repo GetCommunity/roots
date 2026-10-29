@@ -54,3 +54,6 @@
 [submodule "data-etl"]
 	path = data-etl
 	url = git@github.com:GetCommunity/gc-data-etl.git
+[submodule "uci-edu"]
+	path = uci-edu
+	url = https://github.com/GetCommunity/uci-edu-data-science.git

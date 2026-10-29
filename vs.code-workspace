@@ -9,6 +9,10 @@
       "path": "docs"
     },
     {
+      "name": "uci-edu",
+      "path": "uci-edu"
+    },
+    {
       "name": "aws",
       "path": "aws"
     },
