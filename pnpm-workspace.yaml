@@ -14,3 +14,6 @@ allowBuilds:
   unrs-resolver: true
 minimumReleaseAgeExclude:
   - "@solidjs/vite-plugin"
+  - "@solidjs/signals@2.0.1"
+  - "@solidjs/web@2.0.1"
+  - solid-js@2.0.1
